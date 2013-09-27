@@ -8,12 +8,10 @@
 
 #import "NMRequestDispatcher.h"
 #import "NMOperation.h"
-#import "NMServiceOperations.h"
+#import "NMConstants.h"
 
 #import "AFHTTPClient.h"
 #import "AFJSONRequestOperation.h"
-
-#define URL @"http://192.168.0.11:8080/api/v/"
 
 @implementation NMRequestDispatcher
 
@@ -30,7 +28,7 @@
 }
 
 - (AFHTTPClient *)newSeriveClient {
-    NSURL *url = [NSURL URLWithString:URL];
+    NSURL *url = [NSURL URLWithString:kURL];
     
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
     [httpClient setParameterEncoding:AFJSONParameterEncoding];
@@ -43,7 +41,7 @@
         NSLog(@"Operation %@ completed with success.", operation.description);
         
         NMOperation *notification = [NMOperation newOperation:tag message:@"Operation successful." result:responseObject];
-        [[NSNotificationCenter defaultCenter] postNotificationName:kATOperationSuccess object:notification];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kNMOperationSuccess object:notification];
     };
 }
 
@@ -52,7 +50,7 @@
         NSLog(@"Operation %@ completed with error %@.", operation.description, error.localizedFailureReason);
         
         NMOperation *notification = [NMOperation newOperation:tag message:message result:nil];
-        [[NSNotificationCenter defaultCenter] postNotificationName:kATOperationFailure object:notification];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kNMOperationFailure object:notification];
     };
 }
 

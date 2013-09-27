@@ -21,14 +21,15 @@
 		F542DA9917F4F5FC00CE9CF9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F542DA7517F4F5FC00CE9CF9 /* UIKit.framework */; };
 		F542DAA117F4F5FC00CE9CF9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F542DA9F17F4F5FC00CE9CF9 /* InfoPlist.strings */; };
 		F542DAA317F4F5FC00CE9CF9 /* inmapperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F542DAA217F4F5FC00CE9CF9 /* inmapperTests.m */; };
-		F542DABA17F4F6AB00CE9CF9 /* AccelerometerFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = F542DAAD17F4F6AB00CE9CF9 /* AccelerometerFilter.m */; };
-		F542DABC17F4F6AB00CE9CF9 /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = F542DAB117F4F6AB00CE9CF9 /* GraphView.m */; };
-		F542DABD17F4F6AB00CE9CF9 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F542DAB317F4F6AB00CE9CF9 /* MainViewController.m */; };
-		F542DABE17F4F6AB00CE9CF9 /* NMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F542DAB517F4F6AB00CE9CF9 /* NMAppDelegate.m */; };
-		F542DAC717F506D200CE9CF9 /* NMRequestDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = F542DAC617F506D200CE9CF9 /* NMRequestDispatcher.m */; };
-		F542DACA17F5070700CE9CF9 /* NMPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = F542DAC917F5070700CE9CF9 /* NMPosition.m */; };
-		F542DACD17F50F5D00CE9CF9 /* NMOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F542DACC17F50F5D00CE9CF9 /* NMOperation.m */; };
-		F542DAD017F512F300CE9CF9 /* NMServiceOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = F542DACF17F512F300CE9CF9 /* NMServiceOperations.m */; };
+		F55B312317F5AA7900CFF4EF /* NMGraphController.m in Sources */ = {isa = PBXBuildFile; fileRef = F55B310F17F5AA7900CFF4EF /* NMGraphController.m */; };
+		F55B312417F5AA7900CFF4EF /* NMOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F55B311217F5AA7900CFF4EF /* NMOperation.m */; };
+		F55B312517F5AA7900CFF4EF /* NMPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = F55B311417F5AA7900CFF4EF /* NMPosition.m */; };
+		F55B312617F5AA7900CFF4EF /* NMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F55B311617F5AA7900CFF4EF /* NMAppDelegate.m */; };
+		F55B312717F5AA7900CFF4EF /* NMAccelerometerFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = F55B311917F5AA7900CFF4EF /* NMAccelerometerFilter.m */; };
+		F55B312817F5AA7900CFF4EF /* NMRequestDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = F55B311B17F5AA7900CFF4EF /* NMRequestDispatcher.m */; };
+		F55B312A17F5AA7900CFF4EF /* NMProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F55B312017F5AA7900CFF4EF /* NMProgressHUD.m */; };
+		F55B312B17F5AA7900CFF4EF /* NMGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = F55B312217F5AA7900CFF4EF /* NMGraphView.m */; };
+		F5EC135F17F5AC4100158D8F /* NMLocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = F5EC135E17F5AC4100158D8F /* NMLocationService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,22 +61,25 @@
 		F542DA9E17F4F5FC00CE9CF9 /* inmapperTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "inmapperTests-Info.plist"; sourceTree = "<group>"; };
 		F542DAA017F4F5FC00CE9CF9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F542DAA217F4F5FC00CE9CF9 /* inmapperTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = inmapperTests.m; sourceTree = "<group>"; };
-		F542DAAC17F4F6AB00CE9CF9 /* AccelerometerFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccelerometerFilter.h; path = Classes/AccelerometerFilter.h; sourceTree = "<group>"; };
-		F542DAAD17F4F6AB00CE9CF9 /* AccelerometerFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccelerometerFilter.m; path = Classes/AccelerometerFilter.m; sourceTree = "<group>"; };
-		F542DAB017F4F6AB00CE9CF9 /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphView.h; path = Classes/GraphView.h; sourceTree = "<group>"; };
-		F542DAB117F4F6AB00CE9CF9 /* GraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GraphView.m; path = Classes/GraphView.m; sourceTree = "<group>"; };
-		F542DAB217F4F6AB00CE9CF9 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = Classes/MainViewController.h; sourceTree = "<group>"; };
-		F542DAB317F4F6AB00CE9CF9 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = Classes/MainViewController.m; sourceTree = "<group>"; };
-		F542DAB417F4F6AB00CE9CF9 /* NMAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NMAppDelegate.h; path = Classes/NMAppDelegate.h; sourceTree = "<group>"; };
-		F542DAB517F4F6AB00CE9CF9 /* NMAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NMAppDelegate.m; path = Classes/NMAppDelegate.m; sourceTree = "<group>"; };
-		F542DAC517F506D200CE9CF9 /* NMRequestDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NMRequestDispatcher.h; path = Classes/NMRequestDispatcher.h; sourceTree = "<group>"; };
-		F542DAC617F506D200CE9CF9 /* NMRequestDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NMRequestDispatcher.m; path = Classes/NMRequestDispatcher.m; sourceTree = "<group>"; };
-		F542DAC817F5070700CE9CF9 /* NMPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NMPosition.h; path = Classes/NMPosition.h; sourceTree = "<group>"; };
-		F542DAC917F5070700CE9CF9 /* NMPosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NMPosition.m; path = Classes/NMPosition.m; sourceTree = "<group>"; };
-		F542DACB17F50F5D00CE9CF9 /* NMOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NMOperation.h; path = Classes/NMOperation.h; sourceTree = "<group>"; };
-		F542DACC17F50F5D00CE9CF9 /* NMOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NMOperation.m; path = Classes/NMOperation.m; sourceTree = "<group>"; };
-		F542DACE17F512F300CE9CF9 /* NMServiceOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NMServiceOperations.h; path = Classes/NMServiceOperations.h; sourceTree = "<group>"; };
-		F542DACF17F512F300CE9CF9 /* NMServiceOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NMServiceOperations.m; path = Classes/NMServiceOperations.m; sourceTree = "<group>"; };
+		F55B310E17F5AA7900CFF4EF /* NMGraphController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMGraphController.h; sourceTree = "<group>"; };
+		F55B310F17F5AA7900CFF4EF /* NMGraphController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMGraphController.m; sourceTree = "<group>"; };
+		F55B311117F5AA7900CFF4EF /* NMOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMOperation.h; sourceTree = "<group>"; };
+		F55B311217F5AA7900CFF4EF /* NMOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMOperation.m; sourceTree = "<group>"; };
+		F55B311317F5AA7900CFF4EF /* NMPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMPosition.h; sourceTree = "<group>"; };
+		F55B311417F5AA7900CFF4EF /* NMPosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMPosition.m; sourceTree = "<group>"; };
+		F55B311517F5AA7900CFF4EF /* NMAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NMAppDelegate.h; path = Classes/NMAppDelegate.h; sourceTree = "<group>"; };
+		F55B311617F5AA7900CFF4EF /* NMAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NMAppDelegate.m; path = Classes/NMAppDelegate.m; sourceTree = "<group>"; };
+		F55B311817F5AA7900CFF4EF /* NMAccelerometerFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMAccelerometerFilter.h; sourceTree = "<group>"; };
+		F55B311917F5AA7900CFF4EF /* NMAccelerometerFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMAccelerometerFilter.m; sourceTree = "<group>"; };
+		F55B311A17F5AA7900CFF4EF /* NMRequestDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMRequestDispatcher.h; sourceTree = "<group>"; };
+		F55B311B17F5AA7900CFF4EF /* NMRequestDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMRequestDispatcher.m; sourceTree = "<group>"; };
+		F55B311F17F5AA7900CFF4EF /* NMProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMProgressHUD.h; sourceTree = "<group>"; };
+		F55B312017F5AA7900CFF4EF /* NMProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMProgressHUD.m; sourceTree = "<group>"; };
+		F55B312117F5AA7900CFF4EF /* NMGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMGraphView.h; sourceTree = "<group>"; };
+		F55B312217F5AA7900CFF4EF /* NMGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMGraphView.m; sourceTree = "<group>"; };
+		F55B312D17F5AB2700CFF4EF /* NMConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMConstants.h; sourceTree = "<group>"; };
+		F5EC135D17F5AC4100158D8F /* NMLocationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMLocationService.h; sourceTree = "<group>"; };
+		F5EC135E17F5AC4100158D8F /* NMLocationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMLocationService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,22 +142,9 @@
 		F542DA7717F4F5FC00CE9CF9 /* inmapper */ = {
 			isa = PBXGroup;
 			children = (
-				F542DACE17F512F300CE9CF9 /* NMServiceOperations.h */,
-				F542DACF17F512F300CE9CF9 /* NMServiceOperations.m */,
-				F542DACB17F50F5D00CE9CF9 /* NMOperation.h */,
-				F542DACC17F50F5D00CE9CF9 /* NMOperation.m */,
-				F542DAC817F5070700CE9CF9 /* NMPosition.h */,
-				F542DAC917F5070700CE9CF9 /* NMPosition.m */,
-				F542DAC517F506D200CE9CF9 /* NMRequestDispatcher.h */,
-				F542DAC617F506D200CE9CF9 /* NMRequestDispatcher.m */,
-				F542DAAC17F4F6AB00CE9CF9 /* AccelerometerFilter.h */,
-				F542DAAD17F4F6AB00CE9CF9 /* AccelerometerFilter.m */,
-				F542DAB017F4F6AB00CE9CF9 /* GraphView.h */,
-				F542DAB117F4F6AB00CE9CF9 /* GraphView.m */,
-				F542DAB217F4F6AB00CE9CF9 /* MainViewController.h */,
-				F542DAB317F4F6AB00CE9CF9 /* MainViewController.m */,
-				F542DAB417F4F6AB00CE9CF9 /* NMAppDelegate.h */,
-				F542DAB517F4F6AB00CE9CF9 /* NMAppDelegate.m */,
+				F55B310C17F5AA7900CFF4EF /* Classes */,
+				F55B311517F5AA7900CFF4EF /* NMAppDelegate.h */,
+				F55B311617F5AA7900CFF4EF /* NMAppDelegate.m */,
 				F542DA8317F4F5FC00CE9CF9 /* Main_iPhone.storyboard */,
 				F542DA8617F4F5FC00CE9CF9 /* Main_iPad.storyboard */,
 				F542DA8F17F4F5FC00CE9CF9 /* Images.xcassets */,
@@ -189,6 +180,70 @@
 				F542DA9F17F4F5FC00CE9CF9 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F55B310C17F5AA7900CFF4EF /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				F55B312C17F5AB2700CFF4EF /* Util */,
+				F55B310D17F5AA7900CFF4EF /* Controller */,
+				F55B311017F5AA7900CFF4EF /* Model */,
+				F55B311717F5AA7900CFF4EF /* Service */,
+				F55B311E17F5AA7900CFF4EF /* View */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		F55B310D17F5AA7900CFF4EF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F55B310E17F5AA7900CFF4EF /* NMGraphController.h */,
+				F55B310F17F5AA7900CFF4EF /* NMGraphController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F55B311017F5AA7900CFF4EF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F55B311117F5AA7900CFF4EF /* NMOperation.h */,
+				F55B311217F5AA7900CFF4EF /* NMOperation.m */,
+				F55B311317F5AA7900CFF4EF /* NMPosition.h */,
+				F55B311417F5AA7900CFF4EF /* NMPosition.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F55B311717F5AA7900CFF4EF /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				F55B311817F5AA7900CFF4EF /* NMAccelerometerFilter.h */,
+				F55B311917F5AA7900CFF4EF /* NMAccelerometerFilter.m */,
+				F55B311A17F5AA7900CFF4EF /* NMRequestDispatcher.h */,
+				F55B311B17F5AA7900CFF4EF /* NMRequestDispatcher.m */,
+				F5EC135D17F5AC4100158D8F /* NMLocationService.h */,
+				F5EC135E17F5AC4100158D8F /* NMLocationService.m */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		F55B311E17F5AA7900CFF4EF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F55B311F17F5AA7900CFF4EF /* NMProgressHUD.h */,
+				F55B312017F5AA7900CFF4EF /* NMProgressHUD.m */,
+				F55B312117F5AA7900CFF4EF /* NMGraphView.h */,
+				F55B312217F5AA7900CFF4EF /* NMGraphView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F55B312C17F5AB2700CFF4EF /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				F55B312D17F5AB2700CFF4EF /* NMConstants.h */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -325,15 +380,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F55B312817F5AA7900CFF4EF /* NMRequestDispatcher.m in Sources */,
 				F542DA7E17F4F5FC00CE9CF9 /* main.m in Sources */,
-				F542DACA17F5070700CE9CF9 /* NMPosition.m in Sources */,
-				F542DABE17F4F6AB00CE9CF9 /* NMAppDelegate.m in Sources */,
-				F542DABA17F4F6AB00CE9CF9 /* AccelerometerFilter.m in Sources */,
-				F542DACD17F50F5D00CE9CF9 /* NMOperation.m in Sources */,
-				F542DAC717F506D200CE9CF9 /* NMRequestDispatcher.m in Sources */,
-				F542DAD017F512F300CE9CF9 /* NMServiceOperations.m in Sources */,
-				F542DABD17F4F6AB00CE9CF9 /* MainViewController.m in Sources */,
-				F542DABC17F4F6AB00CE9CF9 /* GraphView.m in Sources */,
+				F55B312B17F5AA7900CFF4EF /* NMGraphView.m in Sources */,
+				F55B312617F5AA7900CFF4EF /* NMAppDelegate.m in Sources */,
+				F55B312517F5AA7900CFF4EF /* NMPosition.m in Sources */,
+				F55B312317F5AA7900CFF4EF /* NMGraphController.m in Sources */,
+				F5EC135F17F5AC4100158D8F /* NMLocationService.m in Sources */,
+				F55B312A17F5AA7900CFF4EF /* NMProgressHUD.m in Sources */,
+				F55B312717F5AA7900CFF4EF /* NMAccelerometerFilter.m in Sources */,
+				F55B312417F5AA7900CFF4EF /* NMOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

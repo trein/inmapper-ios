@@ -28,4 +28,8 @@
               @"heading" :  [[NSNumber numberWithDouble:self.heading] stringValue]};
 }
 
+- (NSString *)description {
+    return [[self jsonValue] description];
+}
+
 @end

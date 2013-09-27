@@ -10,5 +10,7 @@
 #import "NMPosition.h"
 
 @interface NMRequestDispatcher : NSObject
+
 - (void)dispatch:(NMPosition *)position;
+
 @end

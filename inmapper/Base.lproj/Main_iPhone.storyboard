@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
+        <!--Graph Controller-->
         <scene sceneID="caL-XW-CPN">
             <objects>
-                <viewController id="92K-0I-TJl" customClass="MainViewController" sceneMemberID="viewController">
+                <viewController id="92K-0I-TJl" customClass="NMGraphController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2m2-40-wNP"/>
                         <viewControllerLayoutGuide type="bottom" id="gIN-cc-jjc"/>
@@ -30,12 +30,12 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="cXM-bx-9d4"/>
                                 </items>
                             </toolbar>
-                            <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8vj-pu-fgW" customClass="GraphView">
+                            <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8vj-pu-fgW" customClass="NMGraphView">
                                 <rect key="frame" x="0.0" y="49" width="320" height="112"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                 <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ExY-Sp-cnj" customClass="GraphView">
+                            <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ExY-Sp-cnj" customClass="NMGraphView">
                                 <rect key="frame" x="0.0" y="198" width="320" height="112"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                 <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>

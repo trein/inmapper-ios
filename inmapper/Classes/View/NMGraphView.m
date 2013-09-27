@@ -1,51 +1,12 @@
-/*
-     File: GraphView.m
- Abstract: Displays a graph of accelerometer output using. This class uses Core Animation techniques to avoid needing to render the entire graph every update
-  Version: 2.5
- 
- Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple
- Inc. ("Apple") in consideration of your agreement to the following
- terms, and your use, installation, modification or redistribution of
- this Apple software constitutes acceptance of these terms.  If you do
- not agree with these terms, please do not use, install, modify or
- redistribute this Apple software.
- 
- In consideration of your agreement to abide by the following terms, and
- subject to these terms, Apple grants you a personal, non-exclusive
- license, under Apple's copyrights in this original Apple software (the
- "Apple Software"), to use, reproduce, modify and redistribute the Apple
- Software, with or without modifications, in source and/or binary forms;
- provided that if you redistribute the Apple Software in its entirety and
- without modifications, you must retain this notice and the following
- text and disclaimers in all such redistributions of the Apple Software.
- Neither the name, trademarks, service marks or logos of Apple Inc. may
- be used to endorse or promote products derived from the Apple Software
- without specific prior written permission from Apple.  Except as
- expressly stated in this notice, no other rights or licenses, express or
- implied, are granted by Apple herein, including but not limited to any
- patent rights that may be infringed by your derivative works or by other
- works in which the Apple Software may be incorporated.
- 
- The Apple Software is provided by Apple on an "AS IS" basis.  APPLE
- MAKES NO WARRANTIES, EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION
- THE IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY AND FITNESS
- FOR A PARTICULAR PURPOSE, REGARDING THE APPLE SOFTWARE OR ITS USE AND
- OPERATION ALONE OR IN COMBINATION WITH YOUR PRODUCTS.
- 
- IN NO EVENT SHALL APPLE BE LIABLE FOR ANY SPECIAL, INDIRECT, INCIDENTAL
- OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
- SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
- INTERRUPTION) ARISING IN ANY WAY OUT OF THE USE, REPRODUCTION,
- MODIFICATION AND/OR DISTRIBUTION OF THE APPLE SOFTWARE, HOWEVER CAUSED
- AND WHETHER UNDER THEORY OF CONTRACT, TORT (INCLUDING NEGLIGENCE),
- STRICT LIABILITY OR OTHERWISE, EVEN IF APPLE HAS BEEN ADVISED OF THE
- POSSIBILITY OF SUCH DAMAGE.
- 
- Copyright (C) 2010 Apple Inc. All Rights Reserved.
- 
-*/
+//
+//  NmGraphView.m
+//  inmapper
+//
+//  Created by Guilherme M. Trein on 9/26/13.
+//  Copyright (c) 2013 Astor Tech. All rights reserved.
+//
 
-#import "GraphView.h"
+#import "NMGraphView.h"
 
 #pragma mark - Overview of operation
 
@@ -138,12 +99,12 @@ void DrawGridlines(CGContextRef context, CGFloat x, CGFloat width)
 	CGContextStrokePath(context);
 }
 
-#pragma mark - GraphViewSegment
+#pragma mark - NMGraphViewSegment
 
-// The GraphViewSegment manages up to 32 accelerometer values and a CALayer that it updates with
+// The NMGraphViewSegment manages up to 32 accelerometer values and a CALayer that it updates with
 // the segment of the graph that those values represent. 
 
-@interface GraphViewSegment : NSObject
+@interface NMGraphViewSegment : NSObject
 {
 	CALayer *layer;
 	// Need 33 values to fill 32 pixel width.
@@ -171,7 +132,7 @@ void DrawGridlines(CGContextRef context, CGFloat x, CGFloat width)
 
 @end
 
-@implementation GraphViewSegment
+@implementation NMGraphViewSegment
 
 @synthesize layer;
 
@@ -295,19 +256,19 @@ void DrawGridlines(CGContextRef context, CGFloat x, CGFloat width)
 
 @end
 
-#pragma mark - GraphTextView
+#pragma mark - NMGraphTextView
 
 // We use a seperate view to draw the text for the graph so that we can layer the segment layers below it
 // which gives the illusion that the numbers are draw over the graph, and hides the fact that the graph drawing
 // for each segment is incomplete until the segment is filled.
 
-@interface GraphTextView : UIView
+@interface NMGraphTextView : UIView
 {
 }
 
 @end
 
-@implementation GraphTextView
+@implementation NMGraphTextView
 
 -(void)drawRect:(CGRect)rect
 {
@@ -342,25 +303,25 @@ void DrawGridlines(CGContextRef context, CGFloat x, CGFloat width)
 
 @end
 
-#pragma mark - GraphView
+#pragma mark - NMGraphView
 
 // Finally the actual GraphView class. This class handles the public interface as well as arranging
 // the subviews and sublayers to produce the intended effect. 
 
-@interface GraphView()
+@interface NMGraphView()
 
 // A common init routine for use with -initWithFrame: and -initWithCoder:
 -(void)commonInit;
 
 // Creates a new segment, adds it to 'segments', and returns a weak reference to that segment
 // Typically a graph will have around a dozen segments, but this depends on the width of the graph view and segments
--(GraphViewSegment*)addSegment;
+-(NMGraphViewSegment*)addSegment;
 
 // Recycles a segment from 'segments' into  'current'
 -(void)recycleSegment;
 @end
 
-@implementation GraphView
+@implementation NMGraphView
 
 @synthesize segments, current, text;
 
@@ -390,7 +351,7 @@ void DrawGridlines(CGContextRef context, CGFloat x, CGFloat width)
 {
 	// Create the text view and add it as a subview. We keep a weak reference
 	// to that view afterwards for laying out the segment layers.
-	text = [[GraphTextView alloc] initWithFrame:CGRectMake(0.0, 0.0, 32.0, 112.0)];
+	text = [[NMGraphTextView alloc] initWithFrame:CGRectMake(0.0, 0.0, 32.0, 112.0)];
 	[self addSubview:text];
 	
 	// Create a mutable array to store segments, which is required by -addSegment
@@ -414,7 +375,7 @@ void DrawGridlines(CGContextRef context, CGFloat x, CGFloat width)
 	}
 	// After adding a new data point, we need to advance the x-position of all the segment layers by 1 to
 	// create the illusion that the graph is advancing.
-	for(GraphViewSegment * s in segments)
+	for(NMGraphViewSegment * s in segments)
 	{
 		CGPoint position = s.layer.position;
 		position.x += 1.0;
@@ -429,10 +390,10 @@ void DrawGridlines(CGContextRef context, CGFloat x, CGFloat width)
 // will be exposed to the user.
 #define kSegmentInitialPosition CGPointMake(14.0, 56.0);
 
--(GraphViewSegment*)addSegment
+-(NMGraphViewSegment*)addSegment
 {
 	// Create a new segment and add it to the segments array.
-	GraphViewSegment * segment = [[GraphViewSegment alloc] init];
+	NMGraphViewSegment * segment = [[NMGraphViewSegment alloc] init];
 	// We add it at the front of the array because -recycleSegment expects the oldest segment
 	// to be at the end of the array. As long as we always insert the youngest segment at the front
 	// this will be true.
@@ -451,7 +412,7 @@ void DrawGridlines(CGContextRef context, CGFloat x, CGFloat width)
 {
 	// We start with the last object in the segments array, as it should either be visible onscreen,
 	// which indicates that we need more segments, or pushed offscreen which makes it eligable for recycling.
-	GraphViewSegment * last = [segments lastObject];
+	NMGraphViewSegment * last = [segments lastObject];
 	if([last isVisibleInRect:self.layer.bounds])
 	{
 		// The last segment is still visible, so create a new segment, which is now the current segment
@@ -473,7 +434,7 @@ void DrawGridlines(CGContextRef context, CGFloat x, CGFloat width)
 }
 
 // The graph view itself exists only to draw the background and gridlines. All other content is drawn either into
-// the GraphTextView or into a layer managed by a GraphViewSegment.
+// the NMGraphTextView or into a layer managed by a NMGraphViewSegment.
 -(void)drawRect:(CGRect)rect
 {
 	CGContextRef context = UIGraphicsGetCurrentContext();
@@ -497,8 +458,8 @@ void DrawGridlines(CGContextRef context, CGFloat x, CGFloat width)
 		return nil;
 	}
 	
-	// Let the GraphViewSegment handle its own accessibilityValue;
-	GraphViewSegment *graphViewSegment = [segments objectAtIndex:0];
+	// Let the NMGraphViewSegment handle its own accessibilityValue;
+	NMGraphViewSegment *graphViewSegment = [segments objectAtIndex:0];
 	return [graphViewSegment accessibilityValue];
 }
 
