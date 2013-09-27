@@ -11,8 +11,11 @@
 @interface NMProgressHUD : NSObject
 
 + (void)showHUDWithStatus:(NSString *)status;
+
 + (void)showProgress:(float)progress;
+
 + (void)hideHUDAfterComplete;
+
 + (void)hideHUD;
 
 @end

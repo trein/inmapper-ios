@@ -22,10 +22,10 @@
 }
 
 - (NSDictionary *)jsonValue {
-    return @{ @"x" :  [[NSNumber numberWithDouble:self.x] stringValue],
-              @"y" :  [[NSNumber numberWithDouble:self.y] stringValue],
-              @"z" :  [[NSNumber numberWithDouble:self.z] stringValue],
-              @"heading" :  [[NSNumber numberWithDouble:self.heading] stringValue]};
+    return @{@"x" : [[NSNumber numberWithDouble:self.x] stringValue],
+            @"y" : [[NSNumber numberWithDouble:self.y] stringValue],
+            @"z" : [[NSNumber numberWithDouble:self.z] stringValue],
+            @"heading" : [[NSNumber numberWithDouble:self.heading] stringValue]};
 }
 
 - (NSString *)description {

@@ -297,7 +297,7 @@
 				ORGANIZATIONNAME = "Astor Tech";
 				TargetAttributes = {
 					F542DA9417F4F5FC00CE9CF9 = {
-						TestTargetID = F542DA6D17F4F5FC00CE9CF9;
+						TestTargetID = F542DA6D17F4F5FC00CE9CF9 /* inmapper */;
 					};
 				};
 			};

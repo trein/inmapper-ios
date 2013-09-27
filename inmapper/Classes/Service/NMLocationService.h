@@ -12,17 +12,20 @@
 
 @class NMPosition;
 @protocol NMLocationServiceDelegate;
-@interface NMLocationService : NSObject<CLLocationManagerDelegate>
+
+@interface NMLocationService : NSObject <CLLocationManagerDelegate>
 
 @property(nonatomic) id <NMLocationServiceDelegate> delegate;
 
 - (void)sendData;
+
 - (NMPosition *)lastAvailablePosition;
 
 @end
 
 
 @class NMLocationService;
+
 @protocol NMLocationServiceDelegate <NSObject>
 
 - (void)service:(NMLocationService *)service didUpdatePosition:(NMPosition *)position;

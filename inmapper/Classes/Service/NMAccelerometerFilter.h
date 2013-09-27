@@ -10,14 +10,13 @@
 #import <CoreMotion/CoreMotion.h>
 
 // Basic filter object. 
-@interface NMAccelerometerFilter : NSObject
-{
-	BOOL adaptive;
-	double x, y, z;
+@interface NMAccelerometerFilter : NSObject {
+    BOOL adaptive;
+    double x, y, z;
 }
 
 // Add a UIAcceleration to the filter.
--(void)addAcceleration:(CMAcceleration)accel;
+- (void)addAcceleration:(CMAcceleration)accel;
 
 @property(nonatomic, readonly) double x;
 @property(nonatomic, readonly) double y;
@@ -29,23 +28,21 @@
 @end
 
 // A filter class to represent a lowpass filter
-@interface LowpassFilter : NMAccelerometerFilter
-{
-	double filterConstant;
-	double lastX, lastY, lastZ;
+@interface LowpassFilter : NMAccelerometerFilter {
+    double filterConstant;
+    double lastX, lastY, lastZ;
 }
 
--(id)initWithSampleRate:(double)rate cutoffFrequency:(double)freq;
+- (id)initWithSampleRate:(double)rate cutoffFrequency:(double)freq;
 
 @end
 
 // A filter class to represent a highpass filter.
-@interface HighpassFilter : NMAccelerometerFilter
-{
-	double filterConstant;
-	double lastX, lastY, lastZ;
+@interface HighpassFilter : NMAccelerometerFilter {
+    double filterConstant;
+    double lastX, lastY, lastZ;
 }
 
--(id)initWithSampleRate:(double)rate cutoffFrequency:(double)freq;
+- (id)initWithSampleRate:(double)rate cutoffFrequency:(double)freq;
 
 @end

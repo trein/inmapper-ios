@@ -8,7 +8,6 @@
 
 #import "NMProgressHUD.h"
 #import "SVProgressHUD.h"
-#import "NMConstants.h"
 
 @implementation NMProgressHUD
 

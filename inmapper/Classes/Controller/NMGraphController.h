@@ -12,26 +12,18 @@
 @class NMGraphView;
 @class NMAccelerometerFilter;
 
-@interface NMGraphController : UIViewController<NMLocationServiceDelegate>
-{
-	NMGraphView *unfiltered;
-	NMGraphView *filtered;
-	UIBarButtonItem *pause;
-	UILabel *filterLabel;
-	NMAccelerometerFilter *filter;
-	BOOL isPaused, useAdaptive;
-}
+@interface NMGraphController : UIViewController <NMLocationServiceDelegate>
 
-@property(nonatomic, strong) NMLocationService *locator;
+@property(nonatomic, weak) IBOutlet NMGraphView *unfiltered;
+@property(nonatomic, weak) IBOutlet NMGraphView *filtered;
+@property(nonatomic, weak) IBOutlet UIBarButtonItem *pause;
+@property(nonatomic, weak) IBOutlet UILabel *filterLabel;
+@property(nonatomic, weak) IBOutlet UILabel *headingLabel;
 
-@property(nonatomic, retain) IBOutlet NMGraphView *unfiltered;
-@property(nonatomic, retain) IBOutlet NMGraphView *filtered;
-@property(nonatomic, retain) IBOutlet UIBarButtonItem *pause;
-@property(nonatomic, retain) IBOutlet UILabel *filterLabel;
-@property (retain, nonatomic) IBOutlet UILabel *headingLabel;
+- (IBAction)pauseOrResume:(id)sender;
 
--(IBAction)pauseOrResume:(id)sender;
--(IBAction)filterSelect:(id)sender;
--(IBAction)adaptiveSelect:(id)sender;
+- (IBAction)filterSelect:(id)sender;
+
+- (IBAction)adaptiveSelect:(id)sender;
 
 @end

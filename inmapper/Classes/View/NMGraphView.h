@@ -11,13 +11,14 @@
 
 @class NMGraphViewSegment;
 @class NMGraphTextView;
+
 @interface NMGraphView : UIView
 
-@property (nonatomic, strong) NSMutableArray *segments;
-@property (nonatomic, strong) NMGraphViewSegment *current; // weak reference
-@property (nonatomic, strong) NMGraphTextView *text; // weak reference
+@property(nonatomic, strong) NSMutableArray *segments;
+@property(nonatomic, strong) NMGraphViewSegment *current; // weak reference
+@property(nonatomic, strong) NMGraphTextView *text; // weak reference
 
 
--(void)addX:(double)x y:(double)y z:(double)z;
+- (void)addX:(double)x y:(double)y z:(double)z;
 
 @end
