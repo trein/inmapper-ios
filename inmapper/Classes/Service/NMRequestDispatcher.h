@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "NMMobilePositions.h"
+#import "NMSession.h"
 
 @interface NMRequestDispatcher : NSObject
 
-- (NSString *)requestUUID;
-- (void)dispatchBatch:(NMMobilePositions *)positions;
+- (void)requestUUID:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, id JSON))callback;
+
+- (void)dispatchBatch:(NSDictionary *)sessionChunk;
 
 @end

@@ -7,7 +7,6 @@
 //
 
 #import "NMLocationService.h"
-#import "NMRequestDispatcher.h"
 #import "NMConstants.h"
 #import "NMPosition.h"
 
@@ -24,7 +23,7 @@
 
 + (NMLocationService *)sharedInstance {
     static NMLocationService *sharedInstance;
-    @synchronized(self) {
+    @synchronized (self) {
         if (sharedInstance == nil) {
             sharedInstance = [NMLocationService new];
         }

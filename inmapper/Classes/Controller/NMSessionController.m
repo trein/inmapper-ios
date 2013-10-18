@@ -20,12 +20,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.service = [NMCommunicationService sharedInstance];
+    self.service = [NMCommunicationService new];
     self.formatter = [self createFormatter];
-    
+
     [self setStartActionActive:NO];
-    
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveEvent:) name:kNMSensorUpdate object:nil];
+}
+
+- (void)viewDidUnload {
+    [super viewDidUnload];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (NSNumberFormatter *)createFormatter {
@@ -34,16 +39,11 @@
     return fmt;
 }
 
-- (void)viewDidUnload {
-    [super viewDidUnload];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
 - (void)receiveEvent:(NSNotification *)notification {
 //    NSLog(@"Received event on indoor controller %@", notification);
-    
+
     NMPosition *position = notification.object;
-    
+
     self.xLabel.text = [self.formatter stringFromNumber:[NSNumber numberWithDouble:position.x]];
     self.yLabel.text = [self.formatter stringFromNumber:[NSNumber numberWithDouble:position.y]];
     self.zLabel.text = [self.formatter stringFromNumber:[NSNumber numberWithDouble:position.z]];
@@ -53,7 +53,11 @@
 - (IBAction)startAction:(id)sender {
     if ([self validFields]) {
         [self setStartActionActive:YES];
-        [self.service startCommunication];
+
+        NSString *roomId = self.roomIdTextField.text;
+        NSString *height = self.heightTextField.text;
+
+        [self.service startCommunicationWithRoomId:roomId userHeight:height];
     }
 }
 
@@ -69,6 +73,8 @@
 - (void)setStartActionActive:(BOOL)start {
     self.startButton.enabled = !start;
     self.stopButton.enabled = start;
+    self.roomIdTextField.enabled = !start;
+    self.heightTextField.enabled = !start;
 }
 
 @end

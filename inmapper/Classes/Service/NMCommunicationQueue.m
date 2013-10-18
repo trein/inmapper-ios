@@ -11,7 +11,7 @@
 
 @interface NMCommunicationQueue ()
 
-@property(nonatomic, weak) void (^block) (NSArray *events);
+@property(nonatomic, strong) void (^block)(NSArray *events);
 @property(nonatomic, strong) NSTimer *timer;
 @property(nonatomic, strong) NSMutableArray *events;
 @property(nonatomic, strong) NSRecursiveLock *lock;
@@ -50,11 +50,11 @@
 
 - (void)postEvents:(NSTimer *)timer {
     [self.lock lock];
-    
+
     NSLog(@"Posting %d events in queue", self.events.count);
     self.block([NSArray arrayWithArray:self.events]);
     [self.events removeAllObjects];
-    
+
     [self.lock unlock];
 }
 

@@ -8,66 +8,60 @@
 
 #import "NMCommunicationService.h"
 #import "NMConstants.h"
-#import "NMMobilePositions.h"
+#import "NMSession.h"
 #import "NMCommunicationQueue.h"
-#import "NMLocationService.h"
 #import "NMRequestDispatcher.h"
 
 @interface NMCommunicationService ()
-@property(nonatomic, weak) NSString *UUID;
-@property(nonatomic, weak) NSString *roomID;
-@property(nonatomic, strong) NMLocationService *locator;
+@property(nonatomic, strong) NMSession *session;
 @property(nonatomic, strong) NMCommunicationQueue *queue;
 @property(nonatomic, strong) NMRequestDispatcher *dispatcher;
 @end
 
 @implementation NMCommunicationService
 
-+ (NMCommunicationService *)sharedInstance {
-    static NMCommunicationService *sharedInstance;
-    @synchronized(self) {
-        if (sharedInstance == nil) {
-            sharedInstance = [NMCommunicationService new];
-        }
-    }
-    return sharedInstance;
-}
-
 - (id)init {
     self = [super init];
     if (self) {
-        self.locator = [NMLocationService sharedInstance];
         self.queue = [[NMCommunicationQueue alloc] initWithBlock:[self createProcessingBlock]];
         self.dispatcher = [NMRequestDispatcher new];
-        
+
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveEvent:) name:kNMSensorUpdate object:nil];
     }
     return self;
 }
-                      
-- (void (^)(NSArray *events))createProcessingBlock {
-    return ^ void (NSArray *events) {
-        NSLog(@"Calling dispatcher to process batch request");
-        
-        [self.dispatcher dispatchBatch:[self newPositions:events]];
+
+- (void (^)(NSURLRequest *request, NSHTTPURLResponse *response, id JSON))createUUIDCallbackBlockWithRoomId:(NSString *)roomId userHeight:(NSString *)height {
+    return ^void(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        NSLog(@"Received UUID equals %@ .", JSON[@"uuid"]);
+
+        self.session = [[NMSession alloc] initWithId:JSON[@"uuid"] roomId:roomId userHeight:height];
+
+        [self.queue start];
     };
 }
 
-- (NMMobilePositions *)newPositions:(NSArray *)positions {
-    return [[NMMobilePositions alloc] initWithUUID:self.UUID roomID:self.roomID postision:positions];
+- (void (^)(NSArray *events))createProcessingBlock {
+    return ^void(NSArray *events) {
+        NSLog(@"Calling dispatcher to process batch request");
+
+        [self.dispatcher dispatchBatch:[self sessionChunk:events]];
+    };
+}
+
+- (NSDictionary *)sessionChunk:(NSArray *)positions {
+    return [self.session jsonValue:positions];
 }
 
 - (void)receiveEvent:(NSNotification *)notification {
     NSLog(@"Received event on communication service %@", notification);
     NMPosition *position = notification.object;
-    
+
     [self.queue appendEvent:position];
 }
 
-- (void)startCommunication {
-    self.UUID = [self.dispatcher requestUUID];
-    self.roomID = @"";
-    [self.queue start];
+- (void)startCommunicationWithRoomId:(NSString *)roomId userHeight:(NSString *)height {
+    [self.dispatcher requestUUID:[self createUUIDCallbackBlockWithRoomId:roomId userHeight:height]];
 }
 
 - (void)stopCommunication {

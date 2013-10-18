@@ -15,32 +15,43 @@
 
 @implementation NMRequestDispatcher
 
-- (NSString *)requestUUID {
-    return @"";
+- (void)requestUUID:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, id JSON))callback {
+    AFHTTPClient *httpClient = [self newServiceClient];
+
+    NSURLRequest *request = [httpClient requestWithMethod:@"GET" path:@"identification" parameters:[NSDictionary new]];
+
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request
+                                                                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+                                                                                            NSLog(@"Operation %@ completed with success.", request.description);
+                                                                                            callback(request, response, JSON);
+                                                                                        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+                NSLog(@"Operation %@ completed with error %@.", request.description, error.localizedFailureReason);
+                [self postFailureNotification:nil message:@"UUID request failed."];
+            }];
+
+    [operation start];
 }
 
-- (void)dispatchBatch:(NMMobilePositions *)positions {
-    AFHTTPClient *httpClient = [self newSeriveClient];
-    
-    NSURLRequest *request = [httpClient requestWithMethod:@"POST" path:@"positions" parameters:[positions jsonValue]];
+- (void)dispatchBatch:(NSDictionary *)sessionChunk {
+    AFHTTPClient *httpClient = [self newServiceClient];
+
+    NSURLRequest *request = [httpClient requestWithMethod:@"POST" path:@"positions" parameters:sessionChunk];
     AFJSONRequestOperation *operation = [[AFJSONRequestOperation alloc] initWithRequest:request];
-    
-    [operation setCompletionBlockWithSuccess:[self createSucessBlock:positions]
-                                     failure:[self createFailureBlock:positions message:@"Positions upload failed."]];
-    
+
+    [operation setCompletionBlockWithSuccess:[self createSuccessBlock:sessionChunk]
+                                     failure:[self createFailureBlock:sessionChunk message:@"Positions upload failed."]];
+
     [httpClient enqueueHTTPRequestOperation:operation];
 }
 
-- (AFHTTPClient *)newSeriveClient {
-    NSURL *url = [NSURL URLWithString:kURL];
-
-    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
+- (AFHTTPClient *)newServiceClient {
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:kURL]];
     [httpClient setParameterEncoding:AFJSONParameterEncoding];
 
     return httpClient;
 }
 
-- (void (^)(AFHTTPRequestOperation *operation, id responseObject))createSucessBlock:(id)tag {
+- (void (^)(AFHTTPRequestOperation *operation, id responseObject))createSuccessBlock:(id)tag {
     return ^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"Operation %@ completed with success.", operation.description);
 
@@ -53,9 +64,13 @@
     return ^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Operation %@ completed with error %@.", operation.description, error.localizedFailureReason);
 
-        NMOperation *notification = [NMOperation newOperation:tag message:message result:nil];
-        [[NSNotificationCenter defaultCenter] postNotificationName:kNMOperationFailure object:notification];
+        [self postFailureNotification:tag message:message];
     };
+}
+
+- (void)postFailureNotification:(id)tag message:(NSString *)message {
+    NMOperation *notification = [NMOperation newOperation:tag message:message result:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kNMOperationFailure object:notification];
 }
 
 @end

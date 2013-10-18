@@ -7,14 +7,14 @@
 //
 
 #import "NMAppDelegate.h"
-#import "NMCommunicationService.h"
+#import "NMLocationService.h"
 
 @implementation NMAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Initialize services
-    [NMCommunicationService sharedInstance];
-    
+    [NMLocationService sharedInstance];
+
     // Override point for customization after application launch.
     return YES;
 }

@@ -216,7 +216,7 @@ void DrawGridlines(CGContextRef context, CGFloat x, CGFloat width) {
     CGContextStrokeLineSegments(context, lines, 64);
 }
 
-- (id)actionForLayer:(CALayer *)layer forKey :(NSString *)key {
+- (id)actionForLayer:(CALayer *)layer forKey:(NSString *)key {
     // We disable all actions for the layer, so no content cross fades, no implicit animation on moves, etc.
     return [NSNull null];
 }

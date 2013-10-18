@@ -55,17 +55,17 @@
     self.filtered = nil;
     self.pause = nil;
     self.filterLabel = nil;
-    
+
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)receiveEvent:(NSNotification *)notification {
     if (!self.isPaused) {
 //        NSLog(@"Received event on graphic controller %@", notification);
-        
+
         NMPosition *position = notification.object;
         CMAcceleration acc = {position.x, position.y, position.z};
-        
+
         [self.filter addAcceleration:acc];
         [self.unfiltered addX:position.x y:position.y z:position.z];
         [self.filtered addX:self.filter.x y:self.filter.y z:self.filter.z];

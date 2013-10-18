@@ -10,9 +10,8 @@
 
 @interface NMCommunicationService : NSObject
 
-+ (NMCommunicationService *)sharedInstance;
+- (void)startCommunicationWithRoomId:(NSString *)roomId userHeight:(NSString *)height;
 
-- (void)startCommunication;
 - (void)stopCommunication;
 
 @end

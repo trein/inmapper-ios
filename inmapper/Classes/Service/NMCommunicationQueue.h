@@ -14,7 +14,9 @@
 - (id)initWithBlock:(void (^)(NSArray *events))block;
 
 - (void)start;
+
 - (void)stop;
+
 - (void)appendEvent:(id)event;
-    
+
 @end
