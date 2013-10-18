@@ -15,4 +15,10 @@ xcuserdata
 profile
 *.moved-aside
 DerivedData
+
+# Idea
 .idea/
+
+# Pods
+Pods/
+Podfile.lock
