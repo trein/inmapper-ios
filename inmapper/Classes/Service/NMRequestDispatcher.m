@@ -15,15 +15,19 @@
 
 @implementation NMRequestDispatcher
 
-- (void)dispatch:(NMPosition *)position {
+- (NSString *)requestUUID {
+    return @"";
+}
+
+- (void)dispatchBatch:(NMMobilePositions *)positions {
     AFHTTPClient *httpClient = [self newSeriveClient];
-
-    NSURLRequest *request = [httpClient requestWithMethod:@"POST" path:@"positions" parameters:[position jsonValue]];
+    
+    NSURLRequest *request = [httpClient requestWithMethod:@"POST" path:@"positions" parameters:[positions jsonValue]];
     AFJSONRequestOperation *operation = [[AFJSONRequestOperation alloc] initWithRequest:request];
-
-    [operation setCompletionBlockWithSuccess:[self createSucessBlock:position]
-                                     failure:[self createFailureBlock:position message:@"Receipt upload failed."]];
-
+    
+    [operation setCompletionBlockWithSuccess:[self createSucessBlock:positions]
+                                     failure:[self createFailureBlock:positions message:@"Positions upload failed."]];
+    
     [httpClient enqueueHTTPRequestOperation:operation];
 }
 
@@ -36,7 +40,7 @@
     return httpClient;
 }
 
-- (void (^)(AFHTTPRequestOperation *operation, id responseObject))createSucessBlock:(NMPosition *)tag {
+- (void (^)(AFHTTPRequestOperation *operation, id responseObject))createSucessBlock:(id)tag {
     return ^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"Operation %@ completed with success.", operation.description);
 
@@ -45,7 +49,7 @@
     };
 }
 
-- (void (^)(AFHTTPRequestOperation *operation, NSError *error))createFailureBlock:(NMPosition *)tag message:(NSString *)message {
+- (void (^)(AFHTTPRequestOperation *operation, NSError *error))createFailureBlock:(id)tag message:(NSString *)message {
     return ^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Operation %@ completed with error %@.", operation.description, error.localizedFailureReason);
 

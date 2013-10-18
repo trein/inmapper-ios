@@ -20,7 +20,6 @@
 
 @property(nonatomic) BOOL isPaused;
 @property(nonatomic) BOOL useAdaptive;
-@property(nonatomic, strong) NMLocationService *locator;
 @property(nonatomic, strong) NMAccelerometerFilter *filter;
 
 // Sets up a new filter. Since the filter's class matters and not a particular instance
@@ -38,9 +37,6 @@
     self.isPaused = NO;
     self.useAdaptive = NO;
 
-    self.locator = [[NMLocationService alloc] init];
-    self.locator.delegate = self;
-
     [self changeFilter:[LowpassFilter class]];
 
     [self.unfiltered setIsAccessibilityElement:YES];
@@ -49,6 +45,7 @@
     [self.filtered setIsAccessibilityElement:YES];
     [self.filtered setAccessibilityLabel:NSLocalizedString(@"filteredGraph", @"")];
 
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveEvent:) name:kNMSensorUpdate object:nil];
 }
 
 - (void)viewDidUnload {
@@ -58,20 +55,21 @@
     self.filtered = nil;
     self.pause = nil;
     self.filterLabel = nil;
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void)service:(NMLocationService *)service didUpdatePosition:(NMPosition *)position {
+- (void)receiveEvent:(NSNotification *)notification {
     if (!self.isPaused) {
-        NSLog(@"New position %@", position);
-
+//        NSLog(@"Received event on graphic controller %@", notification);
+        
+        NMPosition *position = notification.object;
         CMAcceleration acc = {position.x, position.y, position.z};
-
+        
         [self.filter addAcceleration:acc];
         [self.unfiltered addX:position.x y:position.y z:position.z];
         [self.filtered addX:self.filter.x y:self.filter.y z:self.filter.z];
         self.headingLabel.text = [[NSNumber numberWithDouble:position.heading] stringValue];
-
-        [self.locator sendData];
     }
 }
 

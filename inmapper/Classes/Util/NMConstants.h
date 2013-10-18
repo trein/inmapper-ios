@@ -8,10 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-#define kNMOperationSuccess @"kATOperationSuccess"
-#define kNMOperationFailure @"kATOperationFailure"
+#define kNMOperationSuccess @"kNMOperationSuccess"
+#define kNMOperationFailure @"kNMOperationFailure"
 
-#define kAccelerometerUpdateInterval 1.01
+#define kNMSensorUpdate @"kNMSensorUpdate"
+
+#define kCommunicationQueueInterval 30 //seconds
+#define kAccelerometerUpdateInterval 0.1 //seconds
 #define kUpdateFrequency    60.0
 #define kCutoffFrequency    5.0
 

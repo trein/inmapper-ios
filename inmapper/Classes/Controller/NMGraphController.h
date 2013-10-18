@@ -7,12 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "NMLocationService.h"
 
 @class NMGraphView;
 @class NMAccelerometerFilter;
 
-@interface NMGraphController : UIViewController <NMLocationServiceDelegate>
+@interface NMGraphController : UIViewController
 
 @property(nonatomic, weak) IBOutlet NMGraphView *unfiltered;
 @property(nonatomic, weak) IBOutlet NMGraphView *filtered;

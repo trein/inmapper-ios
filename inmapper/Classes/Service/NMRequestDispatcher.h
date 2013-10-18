@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "NMPosition.h"
+#import "NMMobilePositions.h"
 
 @interface NMRequestDispatcher : NSObject
 
-- (void)dispatch:(NMPosition *)position;
+- (NSString *)requestUUID;
+- (void)dispatchBatch:(NMMobilePositions *)positions;
 
 @end

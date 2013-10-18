@@ -29,6 +29,12 @@
 		F55B312817F5AA7900CFF4EF /* NMRequestDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = F55B311B17F5AA7900CFF4EF /* NMRequestDispatcher.m */; };
 		F55B312A17F5AA7900CFF4EF /* NMProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F55B312017F5AA7900CFF4EF /* NMProgressHUD.m */; };
 		F55B312B17F5AA7900CFF4EF /* NMGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = F55B312217F5AA7900CFF4EF /* NMGraphView.m */; };
+		F59AEA2D1810C2260095C8E4 /* NMSessionController.m in Sources */ = {isa = PBXBuildFile; fileRef = F59AEA2C1810C2260095C8E4 /* NMSessionController.m */; };
+		F59AEA301810CE3D0095C8E4 /* NMCommunicationService.m in Sources */ = {isa = PBXBuildFile; fileRef = F59AEA2F1810CE3D0095C8E4 /* NMCommunicationService.m */; };
+		F59AEA331810E33D0095C8E4 /* NMCommunicationQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = F59AEA321810E33D0095C8E4 /* NMCommunicationQueue.m */; };
+		F59AEA361810F1B30095C8E4 /* NMMobilePositions.m in Sources */ = {isa = PBXBuildFile; fileRef = F59AEA351810F1B30095C8E4 /* NMMobilePositions.m */; };
+		F5BD018617F688A500EE8932 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5BD018517F688A500EE8932 /* CoreLocation.framework */; };
+		F5BD018817F688AC00EE8932 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5BD018717F688AC00EE8932 /* MapKit.framework */; };
 		F5EC135F17F5AC4100158D8F /* NMLocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = F5EC135E17F5AC4100158D8F /* NMLocationService.m */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +84,16 @@
 		F55B312117F5AA7900CFF4EF /* NMGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMGraphView.h; sourceTree = "<group>"; };
 		F55B312217F5AA7900CFF4EF /* NMGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMGraphView.m; sourceTree = "<group>"; };
 		F55B312D17F5AB2700CFF4EF /* NMConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMConstants.h; sourceTree = "<group>"; };
+		F59AEA2B1810C2260095C8E4 /* NMSessionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMSessionController.h; sourceTree = "<group>"; };
+		F59AEA2C1810C2260095C8E4 /* NMSessionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMSessionController.m; sourceTree = "<group>"; };
+		F59AEA2E1810CE3D0095C8E4 /* NMCommunicationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMCommunicationService.h; sourceTree = "<group>"; };
+		F59AEA2F1810CE3D0095C8E4 /* NMCommunicationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMCommunicationService.m; sourceTree = "<group>"; };
+		F59AEA311810E33D0095C8E4 /* NMCommunicationQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMCommunicationQueue.h; sourceTree = "<group>"; };
+		F59AEA321810E33D0095C8E4 /* NMCommunicationQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMCommunicationQueue.m; sourceTree = "<group>"; };
+		F59AEA341810F1B30095C8E4 /* NMMobilePositions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMMobilePositions.h; sourceTree = "<group>"; };
+		F59AEA351810F1B30095C8E4 /* NMMobilePositions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMMobilePositions.m; sourceTree = "<group>"; };
+		F5BD018517F688A500EE8932 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		F5BD018717F688AC00EE8932 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		F5EC135D17F5AC4100158D8F /* NMLocationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMLocationService.h; sourceTree = "<group>"; };
 		F5EC135E17F5AC4100158D8F /* NMLocationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMLocationService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,6 +103,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5BD018817F688AC00EE8932 /* MapKit.framework in Frameworks */,
+				F5BD018617F688A500EE8932 /* CoreLocation.framework in Frameworks */,
 				F542DA7417F4F5FC00CE9CF9 /* CoreGraphics.framework in Frameworks */,
 				F542DA7617F4F5FC00CE9CF9 /* UIKit.framework in Frameworks */,
 				F542DA7217F4F5FC00CE9CF9 /* Foundation.framework in Frameworks */,
@@ -130,6 +148,8 @@
 		F542DA7017F4F5FC00CE9CF9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F5BD018717F688AC00EE8932 /* MapKit.framework */,
+				F5BD018517F688A500EE8932 /* CoreLocation.framework */,
 				F542DA7117F4F5FC00CE9CF9 /* Foundation.framework */,
 				F542DA7317F4F5FC00CE9CF9 /* CoreGraphics.framework */,
 				F542DA7517F4F5FC00CE9CF9 /* UIKit.framework */,
@@ -199,6 +219,8 @@
 			children = (
 				F55B310E17F5AA7900CFF4EF /* NMGraphController.h */,
 				F55B310F17F5AA7900CFF4EF /* NMGraphController.m */,
+				F59AEA2B1810C2260095C8E4 /* NMSessionController.h */,
+				F59AEA2C1810C2260095C8E4 /* NMSessionController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -210,6 +232,8 @@
 				F55B311217F5AA7900CFF4EF /* NMOperation.m */,
 				F55B311317F5AA7900CFF4EF /* NMPosition.h */,
 				F55B311417F5AA7900CFF4EF /* NMPosition.m */,
+				F59AEA341810F1B30095C8E4 /* NMMobilePositions.h */,
+				F59AEA351810F1B30095C8E4 /* NMMobilePositions.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -221,6 +245,10 @@
 				F55B311917F5AA7900CFF4EF /* NMAccelerometerFilter.m */,
 				F55B311A17F5AA7900CFF4EF /* NMRequestDispatcher.h */,
 				F55B311B17F5AA7900CFF4EF /* NMRequestDispatcher.m */,
+				F59AEA2E1810CE3D0095C8E4 /* NMCommunicationService.h */,
+				F59AEA2F1810CE3D0095C8E4 /* NMCommunicationService.m */,
+				F59AEA311810E33D0095C8E4 /* NMCommunicationQueue.h */,
+				F59AEA321810E33D0095C8E4 /* NMCommunicationQueue.m */,
 				F5EC135D17F5AC4100158D8F /* NMLocationService.h */,
 				F5EC135E17F5AC4100158D8F /* NMLocationService.m */,
 			);
@@ -297,7 +325,7 @@
 				ORGANIZATIONNAME = "Astor Tech";
 				TargetAttributes = {
 					F542DA9417F4F5FC00CE9CF9 = {
-						TestTargetID = F542DA6D17F4F5FC00CE9CF9 /* inmapper */;
+						TestTargetID = F542DA6D17F4F5FC00CE9CF9;
 					};
 				};
 			};
@@ -383,13 +411,17 @@
 				F55B312817F5AA7900CFF4EF /* NMRequestDispatcher.m in Sources */,
 				F542DA7E17F4F5FC00CE9CF9 /* main.m in Sources */,
 				F55B312B17F5AA7900CFF4EF /* NMGraphView.m in Sources */,
+				F59AEA331810E33D0095C8E4 /* NMCommunicationQueue.m in Sources */,
 				F55B312617F5AA7900CFF4EF /* NMAppDelegate.m in Sources */,
 				F55B312517F5AA7900CFF4EF /* NMPosition.m in Sources */,
 				F55B312317F5AA7900CFF4EF /* NMGraphController.m in Sources */,
 				F5EC135F17F5AC4100158D8F /* NMLocationService.m in Sources */,
 				F55B312A17F5AA7900CFF4EF /* NMProgressHUD.m in Sources */,
+				F59AEA361810F1B30095C8E4 /* NMMobilePositions.m in Sources */,
 				F55B312717F5AA7900CFF4EF /* NMAccelerometerFilter.m in Sources */,
+				F59AEA301810CE3D0095C8E4 /* NMCommunicationService.m in Sources */,
 				F55B312417F5AA7900CFF4EF /* NMOperation.m in Sources */,
+				F59AEA2D1810C2260095C8E4 /* NMSessionController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
