@@ -15,21 +15,20 @@
 
 @implementation NMRequestDispatcher
 
-- (void)requestUUID:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, id JSON))callback {
+- (void)requestToken:(void (^)(id JSON))callback {
     AFHTTPClient *httpClient = [self newServiceClient];
+    NSURLRequest *request = [httpClient requestWithMethod:@"GET" path:@"token" parameters:[NSDictionary new]];
+    AFJSONRequestOperation *operation = [[AFJSONRequestOperation alloc] initWithRequest:request];
 
-    NSURLRequest *request = [httpClient requestWithMethod:@"GET" path:@"identification" parameters:[NSDictionary new]];
+    void (^successBlock)(AFHTTPRequestOperation *, id) =  ^(AFHTTPRequestOperation *operation, id JSON) {
+        NSLog(@"Operation %@ completed with success with result %@.", request.description, JSON);
+        callback(JSON);
+    };
 
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request
-                                                                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-                                                                                            NSLog(@"Operation %@ completed with success.", request.description);
-                                                                                            callback(request, response, JSON);
-                                                                                        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-                NSLog(@"Operation %@ completed with error %@.", request.description, error.localizedFailureReason);
-                [self postFailureNotification:nil message:@"UUID request failed."];
-            }];
+    [operation setCompletionBlockWithSuccess:successBlock
+                                     failure:[self createFailureBlock:@"Token request" message:@"Token request failed."]];
 
-    [operation start];
+    [httpClient enqueueHTTPRequestOperation:operation];
 }
 
 - (void)dispatchBatch:(NSDictionary *)sessionChunk {

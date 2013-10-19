@@ -11,10 +11,10 @@
 
 @implementation NMSession
 
-- (id)initWithId:(NSString *)sessionId roomId:(NSString *)roomId userHeight:(NSString *)userHeight {
+- (id)initWithToken:(NSString *)token roomId:(NSString *)roomId userHeight:(NSString *)userHeight {
     self = [super init];
     if (self) {
-        self.sessionId = sessionId;
+        self.token = token;
         self.roomId = roomId;
         self.userHeight = userHeight;
     }
@@ -22,8 +22,9 @@
 }
 
 - (NSDictionary *)jsonValue:(NSArray *)positions {
-    return @{@"sessionId" : self.sessionId,
+    return @{@"token" : self.token,
             @"roomId" : self.roomId,
+            @"userHeight" : self.userHeight,
             @"positions" : [self extractJsonFromPositions:positions]};
 }
 

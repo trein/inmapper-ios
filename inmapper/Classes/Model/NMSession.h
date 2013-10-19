@@ -10,11 +10,11 @@
 
 @interface NMSession : NSObject
 
-@property(nonatomic, strong) NSString *sessionId;
+@property(nonatomic, strong) NSString *token;
 @property(nonatomic, strong) NSString *roomId;
 @property(nonatomic, strong) NSString *userHeight;
 
-- (id)initWithId:(NSString *)sessionId roomId:(NSString *)roomId userHeight:(NSString *)userHeight;
+- (id)initWithToken:(NSString *)token roomId:(NSString *)roomId userHeight:(NSString *)userHeight;
 
 - (NSDictionary *)jsonValue:(NSArray *)positions;
 

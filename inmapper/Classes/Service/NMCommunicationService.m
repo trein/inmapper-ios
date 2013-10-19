@@ -31,11 +31,11 @@
     return self;
 }
 
-- (void (^)(NSURLRequest *request, NSHTTPURLResponse *response, id JSON))createUUIDCallbackBlockWithRoomId:(NSString *)roomId userHeight:(NSString *)height {
-    return ^void(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        NSLog(@"Received UUID equals %@ .", JSON[@"uuid"]);
+- (void (^)(id JSON))createTokenCallbackBlockWithRoomId:(NSString *)roomId userHeight:(NSString *)height {
+    return ^void(id JSON) {
+        NSLog(@"Received token equals %@.", JSON[@"token"]);
 
-        self.session = [[NMSession alloc] initWithId:JSON[@"uuid"] roomId:roomId userHeight:height];
+        self.session = [[NMSession alloc] initWithToken:JSON[@"token"] roomId:roomId userHeight:height];
 
         [self.queue start];
     };
@@ -61,7 +61,7 @@
 }
 
 - (void)startCommunicationWithRoomId:(NSString *)roomId userHeight:(NSString *)height {
-    [self.dispatcher requestUUID:[self createUUIDCallbackBlockWithRoomId:roomId userHeight:height]];
+    [self.dispatcher requestToken:[self createTokenCallbackBlockWithRoomId:roomId userHeight:height]];
 }
 
 - (void)stopCommunication {

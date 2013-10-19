@@ -11,7 +11,7 @@
 
 @interface NMRequestDispatcher : NSObject
 
-- (void)requestUUID:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, id JSON))callback;
+- (void)requestToken:(void (^)(id JSON))callback;
 
 - (void)dispatchBatch:(NSDictionary *)sessionChunk;
 
