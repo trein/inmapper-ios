@@ -64,12 +64,12 @@
 //        NSLog(@"Received event on graphic controller %@", notification);
 
         NMPosition *position = notification.object;
-        CMAcceleration acc = {position.x, position.y, position.z};
+        CMAcceleration acc = {[position.x doubleValue], [position.y doubleValue], [position.z doubleValue]};
 
         [self.filter addAcceleration:acc];
-        [self.unfiltered addX:position.x y:position.y z:position.z];
+        [self.unfiltered addX:[position.x doubleValue] y:[position.y doubleValue] z:[position.z doubleValue]];
         [self.filtered addX:self.filter.x y:self.filter.y z:self.filter.z];
-        self.headingLabel.text = [[NSNumber numberWithDouble:position.heading] stringValue];
+        self.headingLabel.text = [position.heading stringValue];
     }
 }
 

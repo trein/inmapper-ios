@@ -36,6 +36,9 @@
 		F5BD018617F688A500EE8932 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5BD018517F688A500EE8932 /* CoreLocation.framework */; };
 		F5BD018817F688AC00EE8932 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5BD018717F688AC00EE8932 /* MapKit.framework */; };
 		F5EC135F17F5AC4100158D8F /* NMLocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = F5EC135E17F5AC4100158D8F /* NMLocationService.m */; };
+		F5F9AC351833D5D7004A4E79 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F5F9AC331833D5D7004A4E79 /* Model.xcdatamodeld */; };
+		F5F9AC3B1833D70D004A4E79 /* NMDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F9AC3A1833D70D004A4E79 /* NMDataStore.m */; };
+		F5F9AC3F1833FB23004A4E79 /* Position.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F9AC3E1833FB23004A4E79 /* Position.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +99,11 @@
 		F5BD018717F688AC00EE8932 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		F5EC135D17F5AC4100158D8F /* NMLocationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMLocationService.h; sourceTree = "<group>"; };
 		F5EC135E17F5AC4100158D8F /* NMLocationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMLocationService.m; sourceTree = "<group>"; };
+		F5F9AC341833D5D7004A4E79 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		F5F9AC391833D70D004A4E79 /* NMDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NMDataStore.h; path = inmapper/Classes/Repository/NMDataStore.h; sourceTree = SOURCE_ROOT; };
+		F5F9AC3A1833D70D004A4E79 /* NMDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NMDataStore.m; path = inmapper/Classes/Repository/NMDataStore.m; sourceTree = SOURCE_ROOT; };
+		F5F9AC3D1833FB23004A4E79 /* Position.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Position.h; path = Model/Position.h; sourceTree = "<group>"; };
+		F5F9AC3E1833FB23004A4E79 /* Position.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Position.m; path = Model/Position.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +216,7 @@
 				F55B312C17F5AB2700CFF4EF /* Util */,
 				F55B310D17F5AA7900CFF4EF /* Controller */,
 				F55B311017F5AA7900CFF4EF /* Model */,
+				F5F9AC3C1833D715004A4E79 /* Repository */,
 				F55B311717F5AA7900CFF4EF /* Service */,
 				F55B311E17F5AA7900CFF4EF /* View */,
 			);
@@ -274,6 +283,18 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		F5F9AC3C1833D715004A4E79 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				F5F9AC331833D5D7004A4E79 /* Model.xcdatamodeld */,
+				F5F9AC3D1833FB23004A4E79 /* Position.h */,
+				F5F9AC3E1833FB23004A4E79 /* Position.m */,
+				F5F9AC391833D70D004A4E79 /* NMDataStore.h */,
+				F5F9AC3A1833D70D004A4E79 /* NMDataStore.m */,
+			);
+			name = Repository;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -325,7 +346,7 @@
 				ORGANIZATIONNAME = "Astor Tech";
 				TargetAttributes = {
 					F542DA9417F4F5FC00CE9CF9 = {
-						TestTargetID = F542DA6D17F4F5FC00CE9CF9 /* inmapper */;
+						TestTargetID = F542DA6D17F4F5FC00CE9CF9;
 					};
 				};
 			};
@@ -410,18 +431,21 @@
 			files = (
 				F55B312817F5AA7900CFF4EF /* NMRequestDispatcher.m in Sources */,
 				F542DA7E17F4F5FC00CE9CF9 /* main.m in Sources */,
+				F5F9AC351833D5D7004A4E79 /* Model.xcdatamodeld in Sources */,
 				F55B312B17F5AA7900CFF4EF /* NMGraphView.m in Sources */,
 				F59AEA331810E33D0095C8E4 /* NMCommunicationQueue.m in Sources */,
 				F55B312617F5AA7900CFF4EF /* NMAppDelegate.m in Sources */,
 				F55B312517F5AA7900CFF4EF /* NMPosition.m in Sources */,
 				F55B312317F5AA7900CFF4EF /* NMGraphController.m in Sources */,
 				F5EC135F17F5AC4100158D8F /* NMLocationService.m in Sources */,
+				F5F9AC3B1833D70D004A4E79 /* NMDataStore.m in Sources */,
 				F55B312A17F5AA7900CFF4EF /* NMProgressHUD.m in Sources */,
 				F59AEA361810F1B30095C8E4 /* NMSession.m in Sources */,
 				F55B312717F5AA7900CFF4EF /* NMAccelerometerFilter.m in Sources */,
 				F59AEA301810CE3D0095C8E4 /* NMCommunicationService.m in Sources */,
 				F55B312417F5AA7900CFF4EF /* NMOperation.m in Sources */,
 				F59AEA2D1810C2260095C8E4 /* NMSessionController.m in Sources */,
+				F5F9AC3F1833FB23004A4E79 /* Position.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -658,6 +682,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F5F9AC331833D5D7004A4E79 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F5F9AC341833D5D7004A4E79 /* Model.xcdatamodel */,
+			);
+			currentVersion = F5F9AC341833D5D7004A4E79 /* Model.xcdatamodel */;
+			name = Model.xcdatamodeld;
+			path = Model/Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F542DA6617F4F5FC00CE9CF9 /* Project object */;
 }

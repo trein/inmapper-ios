@@ -11,7 +11,6 @@
 @interface NMCommunicationService : NSObject
 
 - (void)startCommunicationWithRoomId:(NSString *)roomId userHeight:(NSString *)height;
-
 - (void)stopCommunication;
 
 @end

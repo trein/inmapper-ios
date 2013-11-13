@@ -44,10 +44,10 @@
 
     NMPosition *position = notification.object;
 
-    self.xLabel.text = [self.formatter stringFromNumber:[NSNumber numberWithDouble:position.x]];
-    self.yLabel.text = [self.formatter stringFromNumber:[NSNumber numberWithDouble:position.y]];
-    self.zLabel.text = [self.formatter stringFromNumber:[NSNumber numberWithDouble:position.z]];
-    self.headingLabel.text = [self.formatter stringFromNumber:[NSNumber numberWithDouble:position.heading]];
+    self.xLabel.text = [self.formatter stringFromNumber:position.x];
+    self.yLabel.text = [self.formatter stringFromNumber:position.y];
+    self.zLabel.text = [self.formatter stringFromNumber:position.z];
+    self.headingLabel.text = [self.formatter stringFromNumber:position.heading];
 }
 
 - (IBAction)startAction:(id)sender {

@@ -11,13 +11,12 @@
 
 @interface NMPosition : NSObject
 
-@property(nonatomic) double x;
-@property(nonatomic) double y;
-@property(nonatomic) double z;
-@property(nonatomic) double heading;
+@property(nonatomic, strong) NSNumber * x;
+@property(nonatomic, strong) NSNumber * y;
+@property(nonatomic, strong) NSNumber * z;
+@property(nonatomic, strong) NSNumber * heading;
 
 - (id)initWithAcceleration:(CMAcceleration)acceleration heading:(double)heading;
-
 - (NSDictionary *)jsonValue;
 
 @end
