@@ -78,11 +78,13 @@
 }
 
 - (BOOL)validFields {
-//    if (self.roomIdTextField.text.length == 0 || self.headingLabel.text.length == 0) {
-//        [self showErrorMessage:@"Invalid input data"];
-//        return NO;
-//    }
-//    return YES;
+    if (self.roomIdTextField.text.length == 0) {
+        [self showErrorMessage:@"Invalid room id"];
+        return NO;
+    } else if (self.heightTextField.text.length == 0) {
+        [self showErrorMessage:@"Invalid height value"];
+    }
+    return YES;
 }
 
 - (void)showErrorMessage:(NSString *)message {
@@ -105,6 +107,11 @@
     } else {
         [NMProgressHUD showHUDWithStatus:@"Sending data..."];
     }
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
 }
 
 @end
