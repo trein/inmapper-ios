@@ -29,6 +29,7 @@
 		F55B312817F5AA7900CFF4EF /* NMRequestDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = F55B311B17F5AA7900CFF4EF /* NMRequestDispatcher.m */; };
 		F55B312A17F5AA7900CFF4EF /* NMProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F55B312017F5AA7900CFF4EF /* NMProgressHUD.m */; };
 		F55B312B17F5AA7900CFF4EF /* NMGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = F55B312217F5AA7900CFF4EF /* NMGraphView.m */; };
+		F58C5DF91834957B002B8327 /* NMMapController.m in Sources */ = {isa = PBXBuildFile; fileRef = F58C5DF81834957B002B8327 /* NMMapController.m */; };
 		F59AEA2D1810C2260095C8E4 /* NMSessionController.m in Sources */ = {isa = PBXBuildFile; fileRef = F59AEA2C1810C2260095C8E4 /* NMSessionController.m */; };
 		F59AEA301810CE3D0095C8E4 /* NMCommunicationService.m in Sources */ = {isa = PBXBuildFile; fileRef = F59AEA2F1810CE3D0095C8E4 /* NMCommunicationService.m */; };
 		F59AEA331810E33D0095C8E4 /* NMCommunicationQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = F59AEA321810E33D0095C8E4 /* NMCommunicationQueue.m */; };
@@ -87,6 +88,8 @@
 		F55B312117F5AA7900CFF4EF /* NMGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMGraphView.h; sourceTree = "<group>"; };
 		F55B312217F5AA7900CFF4EF /* NMGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMGraphView.m; sourceTree = "<group>"; };
 		F55B312D17F5AB2700CFF4EF /* NMConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMConstants.h; sourceTree = "<group>"; };
+		F58C5DF71834957B002B8327 /* NMMapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMMapController.h; sourceTree = "<group>"; };
+		F58C5DF81834957B002B8327 /* NMMapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMMapController.m; sourceTree = "<group>"; };
 		F59AEA2B1810C2260095C8E4 /* NMSessionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMSessionController.h; sourceTree = "<group>"; };
 		F59AEA2C1810C2260095C8E4 /* NMSessionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = NMSessionController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		F59AEA2E1810CE3D0095C8E4 /* NMCommunicationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMCommunicationService.h; sourceTree = "<group>"; };
@@ -230,6 +233,8 @@
 				F55B310F17F5AA7900CFF4EF /* NMGraphController.m */,
 				F59AEA2B1810C2260095C8E4 /* NMSessionController.h */,
 				F59AEA2C1810C2260095C8E4 /* NMSessionController.m */,
+				F58C5DF71834957B002B8327 /* NMMapController.h */,
+				F58C5DF81834957B002B8327 /* NMMapController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -432,6 +437,7 @@
 				F55B312817F5AA7900CFF4EF /* NMRequestDispatcher.m in Sources */,
 				F542DA7E17F4F5FC00CE9CF9 /* main.m in Sources */,
 				F5F9AC351833D5D7004A4E79 /* Model.xcdatamodeld in Sources */,
+				F58C5DF91834957B002B8327 /* NMMapController.m in Sources */,
 				F55B312B17F5AA7900CFF4EF /* NMGraphView.m in Sources */,
 				F59AEA331810E33D0095C8E4 /* NMCommunicationQueue.m in Sources */,
 				F55B312617F5AA7900CFF4EF /* NMAppDelegate.m in Sources */,

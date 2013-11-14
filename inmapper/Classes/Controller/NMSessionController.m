@@ -44,6 +44,10 @@
 
 - (void)handleSuccess:(NSNotification *)notification {
     [NMProgressHUD hideHUD];
+    NMOperation *operation = notification.object;
+    if ([operation.tag isEqual:kOperationDataUpload]) {
+        [self showInfoMessage:operation.message];
+    }
 }
 
 - (void)handleFailure:(NSNotification *)notification {
@@ -93,6 +97,15 @@
                                                      delegate:nil
                                             cancelButtonTitle:@"OK"
                                             otherButtonTitles:nil];
+    [alert show];
+}
+
+- (void)showInfoMessage:(NSString *)message {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Information message"
+                                                    message:message
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
     [alert show];
 }
 

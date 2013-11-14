@@ -23,12 +23,12 @@
     void (^successBlock)(AFHTTPRequestOperation *, id) =  ^(AFHTTPRequestOperation *operation, id JSON) {
         NSLog(@"Operation %@ completed with success with result %@.", request.description, JSON);
         callback(JSON);
-        NMOperation *notification = [NMOperation newOperation:@"Token request" message:@"Operation successful." result:JSON];
+        NMOperation *notification = [NMOperation newOperation:kOperationTokenRequest message:@"Operation successful." result:JSON];
         [[NSNotificationCenter defaultCenter] postNotificationName:kNMOperationSuccess object:notification];
     };
 
     [operation setCompletionBlockWithSuccess:successBlock
-                                     failure:[self createFailureBlock:@"Token request" message:@"Token request failed."]];
+                                     failure:[self createFailureBlock:kOperationTokenRequest message:@"Token request failed."]];
 
     [httpClient enqueueHTTPRequestOperation:operation];
 }
@@ -39,8 +39,8 @@
     NSURLRequest *request = [httpClient requestWithMethod:@"POST" path:@"positions" parameters:sessionChunk];
     AFJSONRequestOperation *operation = [[AFJSONRequestOperation alloc] initWithRequest:request];
 
-    [operation setCompletionBlockWithSuccess:[self createSuccessBlock:sessionChunk]
-                                     failure:[self createFailureBlock:sessionChunk message:@"Positions upload failed."]];
+    [operation setCompletionBlockWithSuccess:[self createSuccessBlock:kOperationDataUpload message:@"Data upload complete."]
+                                     failure:[self createFailureBlock:kOperationDataUpload message:@"Data upload failed."]];
 
     [httpClient enqueueHTTPRequestOperation:operation];
 }
@@ -52,11 +52,11 @@
     return httpClient;
 }
 
-- (void (^)(AFHTTPRequestOperation *operation, id responseObject))createSuccessBlock:(id)tag {
+- (void (^)(AFHTTPRequestOperation *operation, id responseObject))createSuccessBlock:(id)tag message:(NSString *)message {
     return ^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"Operation %@ completed with success.", operation.description);
 
-        NMOperation *notification = [NMOperation newOperation:tag message:@"Operation successful." result:responseObject];
+        NMOperation *notification = [NMOperation newOperation:tag message:message result:responseObject];
         [[NSNotificationCenter defaultCenter] postNotificationName:kNMOperationSuccess object:notification];
     };
 }

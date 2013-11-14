@@ -17,6 +17,10 @@
 #define kAccelerometerUpdateInterval 0.1 //seconds
 #define kUpdateFrequency    60.0
 #define kCutoffFrequency    5.0
+#define kGravityAcceleration 9.82
+
+#define kOperationTokenRequest @"token_request"
+#define kOperationDataUpload @"data_upload"
 
 #define kURL @"http://192.168.0.15:8080/api/v/"
-//#define kURL @"http://138.51.220.80:8080/api/v/"
+#define kWebURL @"http://192.168.0.15:8080/web/"
