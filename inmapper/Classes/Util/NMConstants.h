@@ -18,5 +18,5 @@
 #define kUpdateFrequency    60.0
 #define kCutoffFrequency    5.0
 
-#define kURL @"http://192.168.0.11:8080/api/v/"
+#define kURL @"http://192.168.0.15:8080/api/v/"
 //#define kURL @"http://138.51.220.80:8080/api/v/"

@@ -1,5 +1,5 @@
 //
-//  NMPosition.m
+//  NMToPosition.m
 //  inmapper
 //
 //  Created by Guilherme M Trein on 7/4/13.
@@ -10,7 +10,7 @@
 
 @implementation NMOperation
 
-- (id)initWithId:(NMPosition *)tag message:(NSString *)message result:(id)result {
+- (id)initWithId:(NSString *)tag message:(NSString *)message result:(id)result {
     self = [super init];
     if (self) {
         _tag = tag;
@@ -20,7 +20,7 @@
     return self;
 }
 
-+ (id)newOperation:(NMPosition *)tag message:(NSString *)message result:(id)result {
++ (id)newOperation:(NSString *)tag message:(NSString *)message result:(id)result {
     return [[self alloc] initWithId:tag message:message result:result];
 }
 

@@ -1,31 +1,42 @@
 //
-//  NMPosition.m
+//  Position.m
 //  inmapper
 //
-//  Created by Guilherme M. Trein on 9/26/13.
+//  Created by Guilherme M. Trein on 11/13/13.
 //  Copyright (c) 2013 Astor Tech. All rights reserved.
 //
 
 #import "NMPosition.h"
+#import "NMToPosition.h"
+
 
 @implementation NMPosition
 
-- (id)initWithAcceleration:(CMAcceleration)acceleration heading:(double)heading {
-    self = [super init];
-    if (self) {
-        self.x = [NSNumber numberWithDouble:acceleration.x];
-        self.y = [NSNumber numberWithDouble:acceleration.y];
-        self.z = [NSNumber numberWithDouble:acceleration.z];
-        self.heading = [NSNumber numberWithDouble:heading];
-    }
-    return self;
+@dynamic token;
+@dynamic x;
+@dynamic y;
+@dynamic z;
+@dynamic heading;
+@dynamic createdAt;
+
+- (void)setFrom:(NMToPosition *)position withToken:(NSString *)token {
+    self.token = token;
+    self.x = position.x;
+    self.y = position.y;
+    self.z = position.z;
+    self.heading = position.heading;
+}
+
+- (void)awakeFromInsert {
+    [super awakeFromInsert];
+    self.createdAt = [NSDate date];
 }
 
 - (NSDictionary *)jsonValue {
     return @{@"x" : [self.x stringValue],
-            @"y" : [self.y stringValue],
-            @"z" : [self.z stringValue],
-            @"heading" : [self.heading stringValue]};
+             @"y" : [self.y stringValue],
+             @"z" : [self.z stringValue],
+             @"heading" : [self.heading stringValue]};
 }
 
 - (NSString *)description {

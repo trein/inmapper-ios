@@ -10,7 +10,7 @@
 #import <CoreMotion/CoreMotion.h>
 #import <CoreLocation/CoreLocation.h>
 
-@class NMPosition;
+@class NMToPosition;
 
 @interface NMLocationService : NSObject <CLLocationManagerDelegate>
 

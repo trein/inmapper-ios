@@ -23,6 +23,8 @@
     void (^successBlock)(AFHTTPRequestOperation *, id) =  ^(AFHTTPRequestOperation *operation, id JSON) {
         NSLog(@"Operation %@ completed with success with result %@.", request.description, JSON);
         callback(JSON);
+        NMOperation *notification = [NMOperation newOperation:@"Token request" message:@"Operation successful." result:JSON];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kNMOperationSuccess object:notification];
     };
 
     [operation setCompletionBlockWithSuccess:successBlock

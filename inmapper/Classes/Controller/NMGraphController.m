@@ -10,7 +10,7 @@
 #import "NMGraphView.h"
 #import "NMAccelerometerFilter.h"
 #import "NMLocationService.h"
-#import "NMPosition.h"
+#import "NMToPosition.h"
 #import "NMConstants.h"
 
 #define kLocalizedPause    NSLocalizedString(@"Pause","pause taking samples")
@@ -63,7 +63,7 @@
     if (!self.isPaused) {
 //        NSLog(@"Received event on graphic controller %@", notification);
 
-        NMPosition *position = notification.object;
+        NMToPosition *position = notification.object;
         CMAcceleration acc = {[position.x doubleValue], [position.y doubleValue], [position.z doubleValue]};
 
         [self.filter addAcceleration:acc];

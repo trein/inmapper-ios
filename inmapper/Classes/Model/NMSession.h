@@ -14,8 +14,9 @@
 @property(nonatomic, strong) NSString *roomId;
 @property(nonatomic, strong) NSString *userHeight;
 
++ (NMSession *)invalidSession;
 - (id)initWithToken:(NSString *)token roomId:(NSString *)roomId userHeight:(NSString *)userHeight;
-
+- (BOOL)isActive;
 - (NSDictionary *)jsonValue:(NSArray *)positions;
 
 @end

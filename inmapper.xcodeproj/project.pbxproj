@@ -23,7 +23,7 @@
 		F542DAA317F4F5FC00CE9CF9 /* inmapperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F542DAA217F4F5FC00CE9CF9 /* inmapperTests.m */; };
 		F55B312317F5AA7900CFF4EF /* NMGraphController.m in Sources */ = {isa = PBXBuildFile; fileRef = F55B310F17F5AA7900CFF4EF /* NMGraphController.m */; };
 		F55B312417F5AA7900CFF4EF /* NMOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F55B311217F5AA7900CFF4EF /* NMOperation.m */; };
-		F55B312517F5AA7900CFF4EF /* NMPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = F55B311417F5AA7900CFF4EF /* NMPosition.m */; };
+		F55B312517F5AA7900CFF4EF /* NMToPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = F55B311417F5AA7900CFF4EF /* NMToPosition.m */; };
 		F55B312617F5AA7900CFF4EF /* NMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F55B311617F5AA7900CFF4EF /* NMAppDelegate.m */; };
 		F55B312717F5AA7900CFF4EF /* NMAccelerometerFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = F55B311917F5AA7900CFF4EF /* NMAccelerometerFilter.m */; };
 		F55B312817F5AA7900CFF4EF /* NMRequestDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = F55B311B17F5AA7900CFF4EF /* NMRequestDispatcher.m */; };
@@ -38,7 +38,7 @@
 		F5EC135F17F5AC4100158D8F /* NMLocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = F5EC135E17F5AC4100158D8F /* NMLocationService.m */; };
 		F5F9AC351833D5D7004A4E79 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F5F9AC331833D5D7004A4E79 /* Model.xcdatamodeld */; };
 		F5F9AC3B1833D70D004A4E79 /* NMDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F9AC3A1833D70D004A4E79 /* NMDataStore.m */; };
-		F5F9AC3F1833FB23004A4E79 /* Position.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F9AC3E1833FB23004A4E79 /* Position.m */; };
+		F5F9AC3F1833FB23004A4E79 /* NMPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F9AC3E1833FB23004A4E79 /* NMPosition.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,11 +71,11 @@
 		F542DAA017F4F5FC00CE9CF9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F542DAA217F4F5FC00CE9CF9 /* inmapperTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = inmapperTests.m; sourceTree = "<group>"; };
 		F55B310E17F5AA7900CFF4EF /* NMGraphController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMGraphController.h; sourceTree = "<group>"; };
-		F55B310F17F5AA7900CFF4EF /* NMGraphController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMGraphController.m; sourceTree = "<group>"; };
-		F55B311117F5AA7900CFF4EF /* NMOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMOperation.h; sourceTree = "<group>"; };
-		F55B311217F5AA7900CFF4EF /* NMOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMOperation.m; sourceTree = "<group>"; };
-		F55B311317F5AA7900CFF4EF /* NMPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMPosition.h; sourceTree = "<group>"; };
-		F55B311417F5AA7900CFF4EF /* NMPosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMPosition.m; sourceTree = "<group>"; };
+		F55B310F17F5AA7900CFF4EF /* NMGraphController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = NMGraphController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		F55B311117F5AA7900CFF4EF /* NMOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = NMOperation.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		F55B311217F5AA7900CFF4EF /* NMOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = NMOperation.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		F55B311317F5AA7900CFF4EF /* NMToPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = NMToPosition.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		F55B311417F5AA7900CFF4EF /* NMToPosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = NMToPosition.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		F55B311517F5AA7900CFF4EF /* NMAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NMAppDelegate.h; path = Classes/NMAppDelegate.h; sourceTree = "<group>"; };
 		F55B311617F5AA7900CFF4EF /* NMAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NMAppDelegate.m; path = Classes/NMAppDelegate.m; sourceTree = "<group>"; };
 		F55B311817F5AA7900CFF4EF /* NMAccelerometerFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMAccelerometerFilter.h; sourceTree = "<group>"; };
@@ -88,22 +88,22 @@
 		F55B312217F5AA7900CFF4EF /* NMGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMGraphView.m; sourceTree = "<group>"; };
 		F55B312D17F5AB2700CFF4EF /* NMConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMConstants.h; sourceTree = "<group>"; };
 		F59AEA2B1810C2260095C8E4 /* NMSessionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMSessionController.h; sourceTree = "<group>"; };
-		F59AEA2C1810C2260095C8E4 /* NMSessionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMSessionController.m; sourceTree = "<group>"; };
+		F59AEA2C1810C2260095C8E4 /* NMSessionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = NMSessionController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		F59AEA2E1810CE3D0095C8E4 /* NMCommunicationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMCommunicationService.h; sourceTree = "<group>"; };
-		F59AEA2F1810CE3D0095C8E4 /* NMCommunicationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMCommunicationService.m; sourceTree = "<group>"; };
-		F59AEA311810E33D0095C8E4 /* NMCommunicationQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMCommunicationQueue.h; sourceTree = "<group>"; };
+		F59AEA2F1810CE3D0095C8E4 /* NMCommunicationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = NMCommunicationService.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		F59AEA311810E33D0095C8E4 /* NMCommunicationQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = NMCommunicationQueue.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		F59AEA321810E33D0095C8E4 /* NMCommunicationQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMCommunicationQueue.m; sourceTree = "<group>"; };
 		F59AEA341810F1B30095C8E4 /* NMSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMSession.h; sourceTree = "<group>"; };
-		F59AEA351810F1B30095C8E4 /* NMSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMSession.m; sourceTree = "<group>"; };
+		F59AEA351810F1B30095C8E4 /* NMSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = NMSession.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		F5BD018517F688A500EE8932 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F5BD018717F688AC00EE8932 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		F5EC135D17F5AC4100158D8F /* NMLocationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMLocationService.h; sourceTree = "<group>"; };
-		F5EC135E17F5AC4100158D8F /* NMLocationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMLocationService.m; sourceTree = "<group>"; };
+		F5EC135D17F5AC4100158D8F /* NMLocationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = NMLocationService.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		F5EC135E17F5AC4100158D8F /* NMLocationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = NMLocationService.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		F5F9AC341833D5D7004A4E79 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		F5F9AC391833D70D004A4E79 /* NMDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NMDataStore.h; path = inmapper/Classes/Repository/NMDataStore.h; sourceTree = SOURCE_ROOT; };
-		F5F9AC3A1833D70D004A4E79 /* NMDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NMDataStore.m; path = inmapper/Classes/Repository/NMDataStore.m; sourceTree = SOURCE_ROOT; };
-		F5F9AC3D1833FB23004A4E79 /* Position.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Position.h; path = Model/Position.h; sourceTree = "<group>"; };
-		F5F9AC3E1833FB23004A4E79 /* Position.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Position.m; path = Model/Position.m; sourceTree = "<group>"; };
+		F5F9AC391833D70D004A4E79 /* NMDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = NMDataStore.h; path = inmapper/Classes/Repository/NMDataStore.h; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		F5F9AC3A1833D70D004A4E79 /* NMDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = NMDataStore.m; path = inmapper/Classes/Repository/NMDataStore.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		F5F9AC3D1833FB23004A4E79 /* NMPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = NMPosition.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		F5F9AC3E1833FB23004A4E79 /* NMPosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = NMPosition.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,8 +239,10 @@
 			children = (
 				F55B311117F5AA7900CFF4EF /* NMOperation.h */,
 				F55B311217F5AA7900CFF4EF /* NMOperation.m */,
-				F55B311317F5AA7900CFF4EF /* NMPosition.h */,
-				F55B311417F5AA7900CFF4EF /* NMPosition.m */,
+				F55B311317F5AA7900CFF4EF /* NMToPosition.h */,
+				F55B311417F5AA7900CFF4EF /* NMToPosition.m */,
+				F5F9AC3D1833FB23004A4E79 /* NMPosition.h */,
+				F5F9AC3E1833FB23004A4E79 /* NMPosition.m */,
 				F59AEA341810F1B30095C8E4 /* NMSession.h */,
 				F59AEA351810F1B30095C8E4 /* NMSession.m */,
 			);
@@ -287,8 +289,6 @@
 			isa = PBXGroup;
 			children = (
 				F5F9AC331833D5D7004A4E79 /* Model.xcdatamodeld */,
-				F5F9AC3D1833FB23004A4E79 /* Position.h */,
-				F5F9AC3E1833FB23004A4E79 /* Position.m */,
 				F5F9AC391833D70D004A4E79 /* NMDataStore.h */,
 				F5F9AC3A1833D70D004A4E79 /* NMDataStore.m */,
 			);
@@ -435,7 +435,7 @@
 				F55B312B17F5AA7900CFF4EF /* NMGraphView.m in Sources */,
 				F59AEA331810E33D0095C8E4 /* NMCommunicationQueue.m in Sources */,
 				F55B312617F5AA7900CFF4EF /* NMAppDelegate.m in Sources */,
-				F55B312517F5AA7900CFF4EF /* NMPosition.m in Sources */,
+				F55B312517F5AA7900CFF4EF /* NMToPosition.m in Sources */,
 				F55B312317F5AA7900CFF4EF /* NMGraphController.m in Sources */,
 				F5EC135F17F5AC4100158D8F /* NMLocationService.m in Sources */,
 				F5F9AC3B1833D70D004A4E79 /* NMDataStore.m in Sources */,
@@ -445,7 +445,7 @@
 				F59AEA301810CE3D0095C8E4 /* NMCommunicationService.m in Sources */,
 				F55B312417F5AA7900CFF4EF /* NMOperation.m in Sources */,
 				F59AEA2D1810C2260095C8E4 /* NMSessionController.m in Sources */,
-				F5F9AC3F1833FB23004A4E79 /* Position.m in Sources */,
+				F5F9AC3F1833FB23004A4E79 /* NMPosition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

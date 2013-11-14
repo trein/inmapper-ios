@@ -8,11 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@class NMPosition;
+@class NMToPosition;
 
 @interface NMDataStore : NSObject
 
-- (void)save:(NMPosition *)position;
-- (NSArray *)findAll;
+- (void)save:(NMToPosition *)position withToken:(NSString *)token;
+- (NSArray *)findAll:(NSString *)token;
+- (void)removeAll:(NSString *)token;
 
 @end

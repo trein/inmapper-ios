@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "NMPosition.h"
+#import "NMToPosition.h"
 
 @interface NMCommunicationQueue : NSObject
 

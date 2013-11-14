@@ -8,7 +8,7 @@
 
 #import "NMLocationService.h"
 #import "NMConstants.h"
-#import "NMPosition.h"
+#import "NMToPosition.h"
 
 @interface NMLocationService ()
 
@@ -85,8 +85,8 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:kNMSensorUpdate object:self.lastAvailablePosition];
 }
 
-- (NMPosition *)lastAvailablePosition {
-    return [[NMPosition alloc] initWithAcceleration:self.lastAcceleration heading:self.lastHeading];
+- (NMToPosition *)lastAvailablePosition {
+    return [[NMToPosition alloc] initWithAcceleration:self.lastAcceleration heading:self.lastHeading];
 }
 
 @end

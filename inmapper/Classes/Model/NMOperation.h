@@ -1,5 +1,5 @@
 //
-//  NMPosition.m
+//  NMToPosition.m
 //  inmapper
 //
 //  Created by Guilherme M Trein on 7/4/13.
@@ -7,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "NMPosition.h"
+#import "NMToPosition.h"
 
 @interface NMOperation : NSObject
-@property(strong, nonatomic, readonly) NMPosition *tag;
+@property(strong, nonatomic, readonly) NSString *tag;
 @property(strong, nonatomic, readonly) NSString *message;
 @property(nonatomic, readonly) id result;
 
-+ (id)newOperation:(NMPosition *)tag message:(NSString *)message result:(id)result;
++ (id)newOperation:(NSString *)tag message:(NSString *)message result:(id)result;
 
 @end

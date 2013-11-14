@@ -31,12 +31,18 @@
 - (NSArray *)extractJsonFromPositions:(NSArray *)positions {
     NSMutableArray *json = [NSMutableArray new];
 
-    for (NSNumber *index in positions) {
-        NMPosition *position = [positions objectAtIndex:[index integerValue]];
-
+    for (NMPosition *position in positions) {
         [json addObject:[position jsonValue]];
     }
     return json;
+}
+
+- (BOOL)isActive {
+    return self.token && self.roomId && self.userHeight;
+}
+
++ (NMSession *)invalidSession {
+    return [[NMSession alloc] initWithToken:nil roomId:nil userHeight:nil];
 }
 
 @end

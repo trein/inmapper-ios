@@ -8,8 +8,10 @@
 
 #import "NMSessionController.h"
 #import "NMConstants.h"
-#import "NMPosition.h"
+#import "NMOperation.h"
+#import "NMToPosition.h"
 #import "NMCommunicationService.h"
+#import "NMProgressHUD.h"
 
 @interface NMSessionController ()
 @property(nonatomic, strong) NMCommunicationService *service;
@@ -22,10 +24,11 @@
     [super viewDidLoad];
     self.service = [NMCommunicationService new];
     self.formatter = [self createFormatter];
-
-    [self setStartActionActive:NO];
+    self.stopButton.enabled = NO;
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveEvent:) name:kNMSensorUpdate object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleFailure:) name:kNMOperationFailure object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleSuccess:) name:kNMOperationSuccess object:nil];
 }
 
 - (void)viewDidUnload {
@@ -39,10 +42,18 @@
     return fmt;
 }
 
-- (void)receiveEvent:(NSNotification *)notification {
-//    NSLog(@"Received event on indoor controller %@", notification);
+- (void)handleSuccess:(NSNotification *)notification {
+    [NMProgressHUD hideHUD];
+}
 
-    NMPosition *position = notification.object;
+- (void)handleFailure:(NSNotification *)notification {
+    [NMProgressHUD hideHUD];
+    NMOperation *operation = notification.object;
+    [self showErrorMessage:operation.message];
+}
+
+- (void)receiveEvent:(NSNotification *)notification {
+    NMToPosition *position = notification.object;
 
     self.xLabel.text = [self.formatter stringFromNumber:position.x];
     self.yLabel.text = [self.formatter stringFromNumber:position.y];
@@ -67,7 +78,20 @@
 }
 
 - (BOOL)validFields {
-    return YES;
+//    if (self.roomIdTextField.text.length == 0 || self.headingLabel.text.length == 0) {
+//        [self showErrorMessage:@"Invalid input data"];
+//        return NO;
+//    }
+//    return YES;
+}
+
+- (void)showErrorMessage:(NSString *)message {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error message"
+                                                      message:message
+                                                     delegate:nil
+                                            cancelButtonTitle:@"OK"
+                                            otherButtonTitles:nil];
+    [alert show];
 }
 
 - (void)setStartActionActive:(BOOL)start {
@@ -75,6 +99,12 @@
     self.stopButton.enabled = start;
     self.roomIdTextField.enabled = !start;
     self.heightTextField.enabled = !start;
+    
+    if (start) {
+        [NMProgressHUD showHUDWithStatus:@"Requesting token..."];
+    } else {
+        [NMProgressHUD showHUDWithStatus:@"Sending data..."];
+    }
 }
 
 @end

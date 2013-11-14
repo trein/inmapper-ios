@@ -15,17 +15,16 @@
 
 @interface NMCommunicationService ()
 @property(nonatomic, strong) NMSession *session;
-@property(nonatomic, strong) NMCommunicationQueue *queue;
 @property(nonatomic, strong) NMRequestDispatcher *dispatcher;
 @property(nonatomic, strong) NMDataStore *dataStore;
 @end
 
 @implementation NMCommunicationService
 
-- (id)initWithContext:(NSManagedObjectContext *)context {
+- (id)init {
     self = [super init];
     if (self) {
-        self.queue = [[NMCommunicationQueue alloc] initWithBlock:[self createProcessingBlock]];
+        self.session = [NMSession invalidSession];
         self.dispatcher = [NMRequestDispatcher new];
         self.dataStore = [NMDataStore new];
 
@@ -37,31 +36,16 @@
 - (void (^)(id JSON))createTokenCallbackBlockWithRoomId:(NSString *)roomId userHeight:(NSString *)height {
     return ^void(id JSON) {
         NSLog(@"Received token equals %@.", JSON[@"token"]);
-
         self.session = [[NMSession alloc] initWithToken:JSON[@"token"] roomId:roomId userHeight:height];
-
-        [self.queue start];
     };
-}
-
-- (void (^)(NSArray *events))createProcessingBlock {
-    return ^void(NSArray *events) {
-        NSLog(@"Calling dispatcher to process batch request");
-
-        [self.dispatcher dispatchBatch:[self sessionData:events]];
-    };
-}
-
-- (NSDictionary *)sessionData:(NSArray *)positions {
-    return [self.session jsonValue:positions];
 }
 
 - (void)receiveEvent:(NSNotification *)notification {
-    NSLog(@"Received event on communication service %@", notification);
-    NMPosition *position = notification.object;
-
-//    [self.dataStore save:position];
-    [self.queue appendEvent:position];
+    if ([self.session isActive]) {
+        NSLog(@"Received event on communication service %@", notification);
+        NMToPosition *position = notification.object;
+        [self.dataStore save:position withToken:self.session.token];
+    }
 }
 
 - (void)startCommunicationWithRoomId:(NSString *)roomId userHeight:(NSString *)height {
@@ -69,7 +53,11 @@
 }
 
 - (void)stopCommunication {
-    [self.queue stop];
+    NSLog(@"Calling dispatcher to process batch request");
+    NSArray *positions = [self.dataStore findAll:self.session.token];
+    [self.dispatcher dispatchBatch:[self.session jsonValue:positions]];
+    self.session = [NMSession invalidSession];
+    [self.dataStore removeAll:self.session.token];
 }
 
 @end
