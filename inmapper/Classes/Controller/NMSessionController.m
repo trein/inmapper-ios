@@ -12,6 +12,7 @@
 #import "NMToPosition.h"
 #import "NMCommunicationService.h"
 #import "NMProgressHUD.h"
+#import "NMLocationService.h"
 
 @interface NMSessionController ()
 @property(nonatomic, strong) NMCommunicationService *service;
@@ -22,9 +23,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[NMLocationService sharedInstance] calibrate];
     self.service = [NMCommunicationService new];
     self.formatter = [self createFormatter];
     self.stopButton.enabled = NO;
+    
+    self.roomIdTextField.text = @"ios-mapping-validation";
+    self.heightTextField.text = @"180";
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveEvent:) name:kNMSensorUpdate object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleFailure:) name:kNMOperationFailure object:nil];

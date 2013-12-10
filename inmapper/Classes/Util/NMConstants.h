@@ -8,19 +8,21 @@
 
 #import <Foundation/Foundation.h>
 
-#define kNMOperationSuccess @"kNMOperationSuccess"
-#define kNMOperationFailure @"kNMOperationFailure"
+static const NSString *kNMOperationSuccess = @"kNMOperationSuccess";
+static const NSString *kNMOperationFailure = @"kNMOperationFailure";
+static const NSString *kNMSensorUpdate = @"kNMSensorUpdate";
 
-#define kNMSensorUpdate @"kNMSensorUpdate"
+static const int kCommunicationQueueInterval = 30; //seconds
+static const NSTimeInterval kAccelerometerUpdateInterval = 1.0/20; //seconds
+static const NSTimeInterval kGyroUpdateInterval = 1.0/20;
 
-#define kCommunicationQueueInterval 30 //seconds
-#define kAccelerometerUpdateInterval 0.1 //seconds
-#define kUpdateFrequency    60.0
-#define kCutoffFrequency    5.0
-#define kGravityAcceleration 9.82
+static const double kUpdateFrequency = 60.0;
+static const double kCutoffFrequency = 5.0;
+static const double kGravityAcceleration = 9.82;
 
-#define kOperationTokenRequest @"token_request"
-#define kOperationDataUpload @"data_upload"
+static const NSString *kOperationTokenRequest = @"token_request";
+static const NSString *kOperationDataUpload = @"data_upload";
 
-#define kURL @"http://192.168.0.15:8080/api/v/"
-#define kWebURL @"http://192.168.0.15:8080/web/"
+//static const NSString *kURL = @"http://192.168.0.15:8080/api/v/";
+static const NSString *kURL = @"http://172.31.34.37:8080/api/v/";
+static const NSString *kWebURL = @"http://192.168.0.15:8080/web/";

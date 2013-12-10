@@ -15,5 +15,6 @@
 @interface NMLocationService : NSObject <CLLocationManagerDelegate>
 
 + (NMLocationService *)sharedInstance;
+- (void)calibrate;
 
 @end

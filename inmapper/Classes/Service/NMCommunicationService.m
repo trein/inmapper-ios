@@ -12,6 +12,7 @@
 #import "NMCommunicationQueue.h"
 #import "NMDataStore.h"
 #import "NMRequestDispatcher.h"
+#import "NMLocationService.h"
 
 @interface NMCommunicationService ()
 @property(nonatomic, strong) NMSession *session;
@@ -36,6 +37,7 @@
 - (void (^)(id JSON))createTokenCallbackBlockWithRoomId:(NSString *)roomId userHeight:(NSString *)height {
     return ^void(id JSON) {
         NSLog(@"Received token equals %@.", JSON[@"token"]);
+        [[NMLocationService sharedInstance] calibrate];
         self.session = [[NMSession alloc] initWithToken:JSON[@"token"] roomId:roomId userHeight:height];
     };
 }
