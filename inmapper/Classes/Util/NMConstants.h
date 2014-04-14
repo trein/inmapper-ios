@@ -23,6 +23,6 @@ static const double kGravityAcceleration = 9.82;
 static const NSString *kOperationTokenRequest = @"token_request";
 static const NSString *kOperationDataUpload = @"data_upload";
 
-//static const NSString *kURL = @"http://192.168.0.15:8080/api/v/";
+//static const NSString *kURL = @"http://192.168.0.40:8080/api/v/";
 static const NSString *kURL = @"http://172.31.34.37:8080/api/v/";
 static const NSString *kWebURL = @"http://192.168.0.15:8080/web/";

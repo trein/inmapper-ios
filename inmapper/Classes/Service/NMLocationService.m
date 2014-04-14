@@ -4,6 +4,7 @@
 //
 //  Created by Guilherme M. Trein on 9/27/13.
 //  Copyright (c) 2013 Astor Tech. All rights reserved.
+// http://www.sundh.com/blog/2011/09/stabalize-compass-of-iphone-with-gyroscope/
 //
 
 #import "NMLocationService.h"
@@ -11,6 +12,8 @@
 #import "NMToPosition.h"
 
 #define CC_RADIANS_TO_DEGREES(__ANGLE__) ((__ANGLE__) / (double)M_PI * 180.0f)
+
+static const BOOL kEnableCompensation = YES;
 
 @interface NMLocationService ()
 
@@ -80,8 +83,10 @@
         if (yawDegrees < 0) {
             yawDegrees = yawDegrees + 360;
         }
-
-        self.lastHeading = yawDegrees;
+        
+        if (kEnableCompensation) {
+            self.lastHeading = yawDegrees;
+        }
     };
 
     // Start listening to motionManager events
@@ -133,7 +138,12 @@
 
     if (newHeading.trueHeading > 0) {
         // Use the true heading if it is valid.
-        self.updatedHeading = ((newHeading.trueHeading > 0) ? newHeading.trueHeading : newHeading.magneticHeading);
+        double heading = ((newHeading.trueHeading > 0) ? newHeading.trueHeading : newHeading.magneticHeading);
+        if (kEnableCompensation) {
+            self.updatedHeading = heading;
+        } else {
+            self.lastHeading = heading;
+        }
     }
 }
 
@@ -141,7 +151,7 @@
 //    NSLog(@"Received accelerometer update.");
 
     self.lastAcceleration = acceleration;
-    [[NSNotificationCenter defaultCenter] postNotificationName:kNMSensorUpdate object:self.lastAvailablePosition];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kNMSensorUpdate object:[self lastAvailablePosition]];
 }
 
 - (NMToPosition *)lastAvailablePosition {

@@ -28,7 +28,7 @@
     self.formatter = [self createFormatter];
     self.stopButton.enabled = NO;
     
-    self.roomIdTextField.text = @"ios-mapping-validation";
+    self.roomIdTextField.text = @"ios-mapping-trein";
     self.heightTextField.text = @"180";
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveEvent:) name:kNMSensorUpdate object:nil];
